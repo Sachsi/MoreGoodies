@@ -10,7 +10,7 @@
 //#define STEP_9_     //type info
 #define STEP_10_    //
 
-#ifdef STEP_10_
+#ifdef STEP_10_ // dynamic caste
 
 int main(void)
 {
