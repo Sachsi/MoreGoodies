@@ -9,7 +9,7 @@
 //#define STEP_8_   //Object Slicing
 //#define STEP_9_     //type info
 #define STEP_10_    //
-
+//here I am missing the name if this learning step
 #ifdef STEP_10_
 
 int main(void)
