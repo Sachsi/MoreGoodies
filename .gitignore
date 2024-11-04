@@ -1,0 +1,9 @@
+**/.git
+**/build
+**/.hg
+**/.svn
+**/CVS
+**/.DB_Store
+**/*.code-search
+**/Thumbe.db
+**/.vscode
