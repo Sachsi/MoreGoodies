@@ -8,9 +8,8 @@
 //#define STEP_7_ 
 //#define STEP_8_   //Object Slicing
 //#define STEP_9_     //type info
-#define STEP_10_    //
+#define STEP_10_    //dynamice cast
 
-//here I am missing the name if this learning step
 #ifdef STEP_10_
 
 int main(void)
