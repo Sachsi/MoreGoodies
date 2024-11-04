@@ -1,0 +1,3 @@
+/storage/emulated/0/CppProjects/MoreGoodies/Enum/CMakeFiles/rebuild_cache.dir
+/storage/emulated/0/CppProjects/MoreGoodies/Enum/CMakeFiles/edit_cache.dir
+/storage/emulated/0/CppProjects/MoreGoodies/Enum/CMakeFiles/Main.dir

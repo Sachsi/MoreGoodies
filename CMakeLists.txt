@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.25.0)
+project(stl VERSION 0.1.0 LANGUAGES C CXX)
+
+include(CTest)
+enable_testing()
+
+add_subdirectory(Initializer)
+add_subdirectory(Literals)
+add_subdirectory(Vector)
+add_subdirectory(Strings)
+add_subdirectory(Assigement)
+add_subdirectory(Union)
+add_subdirectory(Accounts)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
