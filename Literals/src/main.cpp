@@ -64,7 +64,7 @@ int main(void){
     const int y = GetExPrNumber();
     //Behaves as normal function
     int x = GetExPrNumber();
-    int arr1[j];    // can use one const int as well but is not always computate at compile time
+    //int arr1[j];    // can use one const int as well but is not always computate at compile time
     return 0;
 }
 /*Constant expression function rules
