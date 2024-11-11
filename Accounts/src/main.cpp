@@ -5,13 +5,8 @@
 #include "Transaction.h"
 #include <typeinfo>
 
-//#define STEP_7_ 
-//#define STEP_8_   //Object Slicing
-//#define STEP_9_     //type info
-#define STEP_10_    //dynamice cast
 
 #ifdef STEP_10_
-
 int main(void)
 {
     Savings ch("Bob", 100,10 );
