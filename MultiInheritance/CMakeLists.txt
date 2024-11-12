@@ -10,6 +10,8 @@ file(GLOB SRCS
 	"${PROJECT_SOURCE_DIR}/src/*"
 )
 
+add_executable(MultiInheritance ${SRCS})
+
 include(CTest)
 enable_testing()
 
