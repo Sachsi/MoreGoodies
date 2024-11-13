@@ -2,7 +2,16 @@
 #include <limits>
 #include <stdio.h>
 
+class Test{
+public:
+    Test(){std::cout << "Test():Acquire resources" << std::endl;}
+    ~Test(){std::cout << "~Test():Release resources" << std::endl;}
+
+};
+
 int ProcessRecords(int count){
+    Test t;
+
     if(count < 5)
     {
         throw std::out_of_range("Count should be greater than 5");
@@ -19,10 +28,12 @@ int ProcessRecords(int count){
         pArray[i] = i;
     }
     free(pArray);
+    delete[] p;
+
     return 0;
 }
 
-#define anyEx
+//#define anyEx
 
 int main(void)
 {
@@ -38,7 +49,7 @@ int main(void)
 
     try
     {
-        //ProcessRecords(std::numeric_limits<int>::max());
+        ProcessRecords(std::numeric_limits<int>::max());
         ProcessRecords(value);
     }
 #ifndef anyEx
@@ -61,7 +72,7 @@ int main(void)
         std::cout << "any Exception " << std::endl;
     }
     
-    std::cout << "Hello World" << std::endl;
+    std::cout << "Finish Program" << std::endl;
     std::cin >> a;
     return 1;
 }
