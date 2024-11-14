@@ -1,6 +1,11 @@
 #include <iostream>
+#include <memory>
+#include <vector>
 #include <limits>
 #include <stdio.h>
+
+//#define anyEx
+#define STEP_3_ //with smart pointer
 
 class Test{
 public:
@@ -10,7 +15,10 @@ public:
 };
 
 int ProcessRecords(int count){
-    Test t;
+    // with an pointer intanciation, the Instractor will be invoke normaly but
+    // the destractor will not invoke when the function get interrupted by an exception
+#ifndef STEP_3_
+    Test *t = new Test;
 
     if(count < 5)
     {
@@ -29,11 +37,29 @@ int ProcessRecords(int count){
     }
     free(pArray);
     delete[] p;
+    delete t;
+#else
+    std::unique_ptr<Test> t(new Test);
+
+    if(count < 5)
+    {
+        throw std::out_of_range("Count should be greater than 5");
+    }
+    
+    std::vector<int> p;
+    p.reserve(count);
+    std::vector<int> pArray;
+    pArray.reserve(count);
+
+    for(int i = 0; i < count; ++i){
+        pArray.push_back(i);
+    }
+#endif
 
     return 0;
 }
 
-//#define anyEx
+
 
 int main(void)
 {
@@ -49,7 +75,7 @@ int main(void)
 
     try
     {
-        ProcessRecords(std::numeric_limits<int>::max());
+        //ProcessRecords(std::numeric_limits<int>::max());
         ProcessRecords(value);
     }
 #ifndef anyEx
