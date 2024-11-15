@@ -3,6 +3,7 @@
 #include <vector>
 #include <limits>
 #include <stdio.h>
+#include <random>
 
 //#define anyEx
 #define STEP_3_ //with smart pointer
@@ -54,6 +55,19 @@ int ProcessRecords(int count){
     for(int i = 0; i < count; ++i){
         pArray.push_back(i);
     }
+
+    std::default_random_engine eng;
+    std::bernoulli_distribution dist;
+    
+    //we will show that some boolean values can not process
+    //if it is not true, we will throw an exception
+    for(int i = 0; i < count; ++i){
+        std::cout << "Processing record # : " << i << " ";
+        if(!dist(eng)){
+            throw std::runtime_error("Coudl not process the record");
+        }
+    }
+
 #endif
 
     return 0;
