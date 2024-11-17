@@ -58,14 +58,30 @@ int ProcessRecords(int count){
 
     std::default_random_engine eng;
     std::bernoulli_distribution dist;
-    
+    int errors{};
     //we will show that some boolean values can not process
     //if it is not true, we will throw an exception
     for(int i = 0; i < count; ++i){
-        std::cout << "Processing record # : " << i << " ";
-        if(!dist(eng)){
-            throw std::runtime_error("Coudl not process the record");
+        try
+        {
+            std::cout << "Processing record # : " << i << " ";
+            if(!dist(eng)){
+                ++errors;
+                throw std::runtime_error("Coudl not process the record");
+            }
+            std::cout << std::endl;
+        }   
+        catch(std::runtime_error& ex)
+        {
+            std::cout << "[ERROR " << ex.what() << "]" << std::endl;
+            if(errors > 4){
+                //this error exception will thrown outside of this try catch block to interrupt the function
+                std::runtime_error err("Too many errors, Abanding operation");
+                ex = err;   //standard error message get replace by a new message
+                throw;
+            }
         }
+        
     }
 
 #endif
@@ -89,7 +105,7 @@ int main(void)
 
     try
     {
-        //ProcessRecords(std::numeric_limits<int>::max());
+        ProcessRecords(std::numeric_limits<int>::max());
         ProcessRecords(value);
     }
 #ifndef anyEx
