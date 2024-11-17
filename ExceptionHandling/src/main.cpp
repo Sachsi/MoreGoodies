@@ -89,7 +89,7 @@ int ProcessRecords(int count){
     return 0;
 }
 
-
+#ifndef ExHand_II_  //exception Handling in de- and constrator
 
 int main(void)
 {
@@ -132,3 +132,4 @@ int main(void)
     std::cin >> a;
     return 1;
 }
+#endif
