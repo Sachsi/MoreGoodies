@@ -89,7 +89,7 @@ int ProcessRecords(int count){
     return 0;
 }
 
-#ifndef ExHand_II_  //exception Handling in de- and constrator
+#ifdef ExHand_I_ 
 
 int main(void)
 {

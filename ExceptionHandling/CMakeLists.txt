@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(ExceptionHandling VERSION 0.1.0 LANGUAGES C CXX)
 
-add_compile_definitions(ExHand_II_)
+add_compile_definitions(NoExHand_I_)
+#add_compile_definitions(ExHand_II_)
+#add_compile_definitions(ExHand_I_)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/include
