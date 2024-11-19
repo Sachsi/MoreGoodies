@@ -14,6 +14,7 @@ add_subdirectory(Accounts)
 add_subdirectory(MultiInheritance)
 add_subdirectory(Abstract)
 add_subdirectory(ExceptionHandling)
+add_subdirectory(FileInOutput)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
