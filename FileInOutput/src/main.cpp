@@ -2,7 +2,7 @@
 #include <string>
 
 
-
+#ifdef RAW_STRING
 
 int main(void){
     //in the file name, the interpreter read same charater as escape sequences \n(new line) and \t (tab)
@@ -20,3 +20,5 @@ int main(void){
     std::cout << message << std::endl;
     return 0;
 }
+
+#endif
