@@ -51,7 +51,7 @@ void read(void)
         std::cout << "I/O operation are successful" << std::endl;
 
     input.setstate(std::ios::failbit);
-    input.clear();
+    input.clear();//set the good bit
     input.close();
     std::cout << message << ":" << value << std::endl;
 }

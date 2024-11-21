@@ -1,10 +1,11 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.25.0)
 project(FileInOutput VERSION 0.1.0 LANGUAGES C CXX)
 
 #add_compile_definitions(RAW_STRING)
 #add_compile_definitions(FILE_LIBRARY)
-add_compile_definitions(FILE_IO)
-add_compile_definitions(_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING)
+#add_compile_definitions(FILE_IO)
+add_compile_definitions(FILE_IO_COPY)
+#add_compile_definitions(_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/include
