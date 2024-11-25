@@ -3,17 +3,20 @@
 #include <filesystem>
 #include <string>
 
-#ifdef FILE_IO_COPY
+//#ifdef FILE_IO_COPY
 
 int main(void)
 {
     using namespace std::filesystem;
     
-    path source{R"(D:\Dokumente\Software\Weiterbildung\CppProjects\MoreGoodies\FileInOutput\src\)"};
-    source /= "FileIOCopy.cpp";
+    //path source{R"(D:\Dokumente\Software\Weiterbildung\CppProjects\MoreGoodies\FileInOutput\src\)"};
+    path source{R"(C:\Users\SACHSE_T\Documents\Weiterbildung\Cpp\Udemy\MoreGoodies\FileInOutput\src)"};
     std::cout << "current path: " << source.filename() << std::endl;
+    source /= "FileIOCopy.cpp";
+    
 
-    path dest{R"(D:\Dokumente\Software\Weiterbildung\CppProjects\MoreGoodies\FileInOutput\src\)"};
+    //path dest{R"(D:\Dokumente\Software\Weiterbildung\CppProjects\MoreGoodies\FileInOutput\src\)"};
+    path dest{R"(C:\Users\SACHSE_T\Documents\Weiterbildung\Cpp\Udemy\MoreGoodies\FileInOutput\src)"};
     dest /= "Copy.cpp";
 
     std::ifstream input{source};
@@ -34,4 +37,4 @@ int main(void)
     return 0;
 }
 
-#endif
+//#endif
