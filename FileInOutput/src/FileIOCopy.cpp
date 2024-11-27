@@ -3,7 +3,7 @@
 #include <filesystem>
 #include <string>
 
-//#ifdef FILE_IO_COPY
+#ifdef FILE_IO_COPY
 
 int main(void)
 {
@@ -37,4 +37,4 @@ int main(void)
     return 0;
 }
 
-//#endif
+#endif
