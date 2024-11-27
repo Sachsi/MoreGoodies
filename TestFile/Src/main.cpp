@@ -2,15 +2,11 @@
 #include <memory>
 #include <array>
 #include <stdexcept>
+#include <map>
 
-int Calc(int a, int b)
+void UsingArray()
 {
-    return (a + b);
-}
-
-int main(void)
-{
-    int v = 4;
+        int v = 4;
     int *a = &v;
     int c{};
     std::array<int, 6> data{1, 2, 3, 4, 5, 6};
@@ -22,7 +18,31 @@ int main(void)
     // std::cout << "value b:" << *b << std::endl;
     std::cout << "value data: " << data.at(1) << std::endl;
     std::cout << "value data: " << data.at(2) << std::endl;
+}
 
+
+int Calc(int a, int b)
+{
+    return (a + b);
+}
+
+void print_map(std::string msg, std::map<std::string, int> temp)
+{
+    std::cout << "map: " << temp.count("CPU") << std::endl;
+    std::cout << msg << std::endl;
+    //Iterate using C++
+    for(const auto& [key, value] : temp)
+    {
+        std::cout << "der key: " << key << " der Wert: " << value << std::endl;
+    }
+}
+
+int main(void)
+{
+    std::map<std::string, int> a{{"CPU", 10},{"GPU", 15},{"RAM", 20}};
+    print_map("1) Inittial map: ", a);
+
+    
     Calc(3, 5);
     return 1;
 }
