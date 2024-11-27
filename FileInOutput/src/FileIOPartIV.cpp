@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 
-//#ifdef FILE_IO_SEEKING
+#ifdef FILE_IO_SEEKING
 //
 void Write(){
     std::ofstream out("test.txt");
@@ -74,4 +74,4 @@ int main(void){
     return 0;
 }
 
-//#endif
+#endif
