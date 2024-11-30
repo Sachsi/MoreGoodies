@@ -39,10 +39,16 @@ void print_map(std::string msg, std::map<std::string, int> temp)
 
 int main(void)
 {
-    std::map<std::string, int> a{{"CPU", 10},{"GPU", 15},{"RAM", 20}};
-    print_map("1) Inittial map: ", a);
+    typedef std::map<std::string, int> maps;
 
+    maps a{{"CPU", 10},{"GPU", 15},{"RAM", 20}};
+    maps b;
     
+    print_map("1) Inittial map: ", a);
+    a.insert(std::pair<std::string, int>("CPP", 23));
+
+    print_map("2) insirt key map: ", a);
+        
     Calc(3, 5);
     return 1;
 }
