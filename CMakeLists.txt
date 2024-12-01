@@ -16,6 +16,7 @@ add_subdirectory(Abstract)
 add_subdirectory(ExceptionHandling)
 add_subdirectory(FileInOutput)
 add_subdirectory(TestFile)
+add_subdirectory(Templates)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
