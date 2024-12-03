@@ -1,68 +1,72 @@
 #include <iostream>
 #include <array>
 
-int Add(int x, int y)
+
+template<typename T>
+T Add(T x, T y)
 {
     return (x + y);
 }
 
-int ArraySum(const int *pArr, size_t arrSize)
+template<typename T, typename S>
+int ArraySum(T x, S y)
+//int ArraySum(const int *pArr, size_t arrSize)
 {
-    const int* pstart;
-    pstart = pArr;
+    T pstart = x;
     int sum = 0;
-    for( int i = 0; i < arrSize; i++ )
+    std::cout << "sum id: " << typeid(x).name() << std::endl;
+
+    for( int i = 0; i < y; i++ )
     {
-        sum += *pArr;
-        pArr++;
+        sum = Add(*pstart, sum);
+        pstart++;
     }
     return sum;
 }
-
-int Max(const int* pArr, size_t arrSize)
+template<typename T, typename S>
+int Max(T x, S y)
+// int Max(const int* pArr, size_t arrSize)
 {
-    int max = *pArr;
-    const int* ptemp = pArr;
-    for(int i = 0; i < arrSize; i++)
+    int max = *x;
+    const int* ptemp = x;
+    for(int i = 0; i < y; i++)
     {
         max = *ptemp > max ? *ptemp : max;
         ptemp++;
     }
     return max;
 }
-
-std::pair<int, int> MinMax(const int* pArr, size_t arrSize)
+template<typename T, typename S>
+std::pair<int, int> MinMax(T x, S y)
 {
-    int max = 0;
-    int min = *pArr;
-    const int* ptemp = pArr;
-    max = Max(pArr, arrSize);
+    int result_Min = *x;
+    T ptemp = x;
+    int result = Max(x, y);
     
-    for(int i = 0; i < arrSize; i++)
+    for(int i = 0; i < y; i++)
     {
-        min = *ptemp < min ? *ptemp : min;
+        result_Min = *ptemp < result_Min ? *ptemp : result_Min;
         ptemp++;
     }
-
-    return std::pair<int, int>(min, max);
+    return std::pair<int, int>(result_Min, result);
 }
 
 int main(void)
 {
 
     std::array<int, 3> arr{15, 22, -1};
-    int* pArr = arr.begin();
-
+    int* pArr = nullptr;
+    
     int sum = Add(19, 19);
     std::cout << "result " << sum << std::endl;
 
-    int elements = ArraySum(pArr, arr.size());
-    std::cout << "Num Elements: " << elements << std::endl;
-
-    int max = Max(pArr, arr.size());
+    int elements = ArraySum(arr.data(), arr.size());
+    std::cout << "Sum Elements: " << elements << std::endl;
+    
+    auto max = Max(arr.data(), arr.size());
     std::cout << "Max value ist: " << max << std::endl;
 
-    std::pair<int, int> a = MinMax(pArr, arr.size());
+    std::pair<int, int> a = MinMax(arr.data(), arr.size());
     std::cout << "Min value: " << a.first << " Max value: " << a.second << std::endl;
 
 }
