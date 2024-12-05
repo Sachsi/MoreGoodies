@@ -51,6 +51,8 @@ std::pair<int, int> MinMax(T x, S y)
     return std::pair<int, int>(result_Min, result);
 }
 
+#ifdef ASSIGNMENT
+
 int main(void)
 {
 
@@ -60,8 +62,8 @@ int main(void)
     int sum = Add(19, 19);
     std::cout << "result " << sum << std::endl;
 
-    int elements = ArraySum(arr.data(), arr.size());
-    std::cout << "Sum Elements: " << elements << std::endl;
+    //int elements = ArraySum(arr.data(), arr.size());
+    //std::cout << "Sum Elements: " << elements << std::endl;
     
     auto max = Max(arr.data(), arr.size());
     std::cout << "Max value ist: " << max << std::endl;
@@ -70,3 +72,5 @@ int main(void)
     std::cout << "Min value: " << a.first << " Max value: " << a.second << std::endl;
 
 }
+
+#endif ASSIGMENT
