@@ -24,7 +24,8 @@ template<> const char* Max<const char*>(const char*x, const char*y)
     return strcmp(x,y) > 0 ? x : y;
 }
 
-//#ifdef TEMPLATES_STEP1
+
+#ifdef TEMPLATES_STEP1
 
 int main(void){
 
@@ -44,4 +45,4 @@ int main(void){
     return 1;
 }
 
-//#endif
+#endif
