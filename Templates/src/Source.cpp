@@ -1,5 +1,7 @@
 #include <iostream>
 
+
+#ifdef TEMPLATES_STEP1
 // int Max(int x, int y)
 // {
 //     std::cout << typeid(x).name() << std::endl;
@@ -25,7 +27,7 @@ template<> const char* Max<const char*>(const char*x, const char*y)
 }
 
 
-#ifdef TEMPLATES_STEP1
+
 
 int main(void){
 
