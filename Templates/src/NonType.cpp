@@ -30,7 +30,7 @@ T Sum(T (&parr)[size]){
     return sum;
 }
 
-//#ifdef NON_TYPE_ARG
+#ifdef NON_TYPE_ARG
 int main(void)
 {
     int i = 4;
@@ -51,4 +51,4 @@ int main(void)
     std::cout << sum << std::endl;
     return 1;
 }
-//#endif
+#endif
