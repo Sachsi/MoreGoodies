@@ -1,13 +1,22 @@
 #include <iostream>
 #include <array>
-
+#include <string>
+#include <cstring>
 
 template<typename T>
 T Add(T x, T y)
 {
     return (x + y);
 }
+//Explicite Instanciation
+template char Add(char x, char y);
 
+template<> const char* Add<const char*>(const char* x, const char* y)
+{
+    std::cout << "used explicite specialization char*" << std::endl;
+    char dest = *x;
+    return strcat(&dest, y);
+}
 template<typename T, int size>
 T ArraySum(T (&x)[size])
 //int ArraySum(const int *pArr, size_t arrSize)
@@ -21,13 +30,7 @@ T ArraySum(T (&x)[size])
     }
     return sum;
 }
-/**
- * @brief 
- * 
- * @tparam T 
- * @tparam size 
- * @return T 
- */
+
 template<typename T, int size>
 T Max(T (&x)[size])
 // int Max(const int* pArr, size_t arrSize)
@@ -56,9 +59,9 @@ std::pair<T, T> MinMax(T (&x)[size])
 
 int main(void)
 {
-    std::array<int, 3> arr{15, 22, -1};
+    const char b = {'A'};
+    const char c = {'F'};
     int array[] = {12,5,9,6, 56};
-    int* pArr = nullptr;
     int (&ref)[5] = array;
     int sum = Add(19, 19);
     std::cout << "result " << sum << std::endl;
@@ -71,6 +74,9 @@ int main(void)
 
     auto a = MinMax(ref);
     std::cout << "Min value: " << a.first << " Max value: " << a.second << std::endl;
+
+    char abc = Add(b, c);
+    std::cout << "abc Add ist: " << abc << std::endl;
 
 }
 
