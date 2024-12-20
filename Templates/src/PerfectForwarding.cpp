@@ -19,22 +19,30 @@ public:
 //this template should work for every kind of initialization
     template<typename T1, typename T2>
     Employee(T1 &&name, T2 &&id) :
-        m_Name{name},
-        m_Id{id}{
+        //forwarding is used to make sure the type of arg. which is used 
+        m_Name{std::forward<T1>(name)},
+        m_Id{std::forward<T2>(id)}{
+        //m_Id{id}{ //here is still used the copy Constr. when an Object is the argument
             std::cout << "Employee (std::string &name, Integer &id)" << std::endl;
 
         }
     //~Employee(){}
 };
+template<typename T1, typename T2>
+Employee Create(T1 &&name, T2 &&id)
+{
+    return Employee(std::forward<T1>(name), std::forward<T2>(id));
+}
 
 #ifdef FORWARDING
 int main(void)
 {
     Employee    soft{"User", 100};
     std::string name = "User";
-    Employee emp1(name, 100);
-    Integer val{100};
-    Employee emp2("User", val);
+    // Employee emp1(name, 100);
+    // Integer val{100}; 
+    // Employee emp2("User", val);
+    Create(name, Integer{100});
     return 1;
 }
 
