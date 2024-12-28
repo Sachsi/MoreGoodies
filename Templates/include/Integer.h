@@ -27,7 +27,10 @@ class Integer
 		Integer & operator=(const Integer &obj);
 		// function call operator
 		void operator()();
+		//
+		
 		//global operator with direct access of member 
 		friend std::istream & operator>>(std::istream & input, Integer &a);
 		
 };
+std::ostream & operator <<(std::ostream & out, const Integer &obj);

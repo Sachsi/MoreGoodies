@@ -98,3 +98,10 @@ void Integer::operator()()
 {
 	std::cout << *m_pInt << std::endl;
 }
+
+//
+std::ostream & operator<<(std::ostream& out, const Integer &obj)
+{
+	out << obj.GetValue();
+	return  out;
+}

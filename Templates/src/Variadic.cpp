@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "Integer.h"
 //this problem is, the type of the arguments have to be the same
 // template<typename T>
 // void Print(std::initializer_list<T> args)
@@ -14,21 +14,32 @@
 //arguments of the parameter pack Print(...)
 void Print()
 {
-
+    std::cout << std::endl;
 }
 
 //variadic Template parameters pack
 template<typename T, typename...Params>
 //Function parameter pack
-void Print(T a, Params...args)
+void Print(T &&a, Params&&...args)
 {
-    Print(args...);
+    //Variadic Part II, get access of the arguments
+    // std::cout << sizeof...(args) << std::endl;
+    // std::cout << sizeof...(Params) << std::endl;
+    std::cout << a;
+    if(sizeof...(args) != 0)
+        std::cout << ",";
+    Print(std::forward<Params>(args)...);
 }
 
 #ifdef VARIADIC
 int main(void)
 {
-    Print(1, 2, 3, 4);
+    //Template mit festen typen
+    //Print({1, 3, 4, 5});
+    //Variatic template
+    //Print(1, 2.5, 3, "4");
+    Integer val{1};
+    Print(1, 3, val, Integer{3});
     return 1;
 }
 #endif
