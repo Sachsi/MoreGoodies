@@ -20,6 +20,7 @@ public:
     template<typename T1, typename T2>
     Employee(T1 &&name, T2 &&id) :
         //forwarding is used to make sure the type of arg. which is used 
+        //std::forward<> is used especially when internal other templates will invoked
         m_Name{std::forward<T1>(name)},
         m_Id{std::forward<T2>(id)}{
         //m_Id{id}{ //here is still used the copy Constr. when an Object is the argument
