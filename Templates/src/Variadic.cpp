@@ -32,3 +32,11 @@ int main(void)
     return 1;
 }
 #endif
+
+/*
+1.Print(1, 2.4, 3, "4");
+2.Print(2.4, 3, "4");
+3.Print(3, "4");
+4.Print("4");
+5.Print();
+*/
