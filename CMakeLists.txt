@@ -18,6 +18,7 @@ add_subdirectory(FileInOutput)
 add_subdirectory(TestFile)
 add_subdirectory(Templates)
 add_subdirectory(OperatorOverloading)
+add_subdirectory(ClassTemplates)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
