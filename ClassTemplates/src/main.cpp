@@ -45,6 +45,9 @@ Buffer<T, size> Buffer<T, size>::Create()
 {
     return Buffer<T, size>();
 }
+
+#ifdef PART_I
+
 int main(void)
 {
     //the type and the size have to define after class name
@@ -65,3 +68,5 @@ int main(void)
     
     return 0;
 }
+
+#endif

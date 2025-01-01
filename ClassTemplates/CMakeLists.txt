@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.25.0)
 project(ClassTemplates VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 
-add_compile_definitions(PART_I)
+#add_compile_definitions(PART_I)
+add_compile_definitions(EXPLICITE)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/include
