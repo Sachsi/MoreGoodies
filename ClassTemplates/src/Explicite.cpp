@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+
 template<typename T>
 class PrettyPrinter{
     T *m_Data;
@@ -29,7 +31,39 @@ public:
     }
 };
 
-#ifdef EXPLICITE
+// what was changed is just the function Print. So we create a template for
+// Std::vector<> Print
+// this has to be outside the class but inside the namespace
+template<>
+void PrettyPrinter<std::vector<int>>::Print(){
+    std::cout << "{ ";
+    for(const auto &x : *m_Data){
+        std::cout << x;
+    }
+    std::cout << "}" << std::endl;
+}
+
+//explicite specialization for template of vector type
+// template<>
+// class PrettyPrinter<std::vector<int>> {
+//     std::vector<int> *m_pData;
+// public:
+//     PrettyPrinter(std::vector<int> *data) : m_pData(data){
+
+//     }
+//     void Print(){
+//         std::cout << "{ ";
+//         for(const auto &x : *m_pData){
+//             std::cout << x;
+//         }
+//         std::cout << "}" << std::endl;
+//     }
+//     std::vector<int> * GetData(){
+//         return m_pData;
+//     }
+// };
+
+//#ifdef EXPLICITE
 
 int main(void)
 {
@@ -45,7 +79,12 @@ int main(void)
     p3.Print();
     char *pData = p3.GetData();
     std::cout << pData;
+
+    std::vector<int> vec = {1, 3 , 4, 5};
+    PrettyPrinter<std::vector<int>> pv(&vec);
+    pv.Print();
+        
     return 0;
 }
 
-#endif
+//#endif
