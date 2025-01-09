@@ -63,7 +63,7 @@ void PrettyPrinter<std::vector<int>>::Print(){
 //     }
 // };
 
-//#ifdef EXPLICITE
+#ifdef EXPLICITE
 
 int main(void)
 {
@@ -87,4 +87,4 @@ int main(void)
     return 0;
 }
 
-//#endif
+#endif
