@@ -19,6 +19,7 @@ add_subdirectory(TestFile)
 add_subdirectory(Templates)
 add_subdirectory(OperatorOverloading)
 add_subdirectory(ClassTemplates)
+add_subdirectory(TypedefAlias)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
