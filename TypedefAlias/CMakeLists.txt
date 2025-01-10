@@ -14,5 +14,15 @@ file(GLOB SRCS
 
 add_executable(TypedefAlias ${SRCS})
 
+
+#... (vorherige Inhalte)
+
+# Anweisung, um den Test zu erstellen
+add_executable(MeinTest Test/test_main.cpp)
+
+# Anweisung, um den Test zu registrieren
 include(CTest)
 enable_testing()
+add_test(NAME MeinEinfacherTest
+         COMMAND MeinTest
+         WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
