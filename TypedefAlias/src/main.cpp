@@ -19,6 +19,7 @@ typedef std::vector<std::list<std::string>> Names;
 //Aliase of long type declaration, lock better
 using Name = std::vector<std::list<std::string>>;
 
+#ifdef ALIAS
 int main(){
     Names namen;
     Name nname;
@@ -26,3 +27,5 @@ int main(){
     ShowError(pfn);
     return 0;
 }
+
+#endif
