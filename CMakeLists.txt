@@ -20,6 +20,7 @@ add_subdirectory(Templates)
 add_subdirectory(OperatorOverloading)
 add_subdirectory(ClassTemplates)
 add_subdirectory(TypedefAlias)
+add_subdirectory(LambdaExpressions)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
