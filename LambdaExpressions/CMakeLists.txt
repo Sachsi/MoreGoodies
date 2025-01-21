@@ -3,7 +3,8 @@ project(LambdaExpressions VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 
 #add_compile_definitions(FUNCTIONPOINTER)
-add_compile_definitions(FUNCTIONOBJECT)
+#add_compile_definitions(FUNCTIONOBJECT)
+add_compile_definitions(LAMBDA)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/include

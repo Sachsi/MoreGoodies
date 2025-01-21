@@ -28,7 +28,7 @@ bool Comp1(int x, int y){
     return x < y;
 }
 #endif FUNCTIONPOINTER
-//#ifdef FUNCTIONOBJECT
+#ifdef FUNCTIONOBJECT
 //ein Alais auf einen Functionszeiger
 //the Alais has to commmited
 //using Comparator = bool(*)(int, int);
@@ -66,12 +66,18 @@ struct Comp2
         return x < y;
     }
 };
+#endif
 
+template<typename T>
+struct Unnamed{
+    T operator()(T x, T y)const{
+        return x + y;
+    }
+};
 
-
-//endif
 int main(void)
 {
+#ifdef FUNCTIONOBJECT
     Comp(2, 4);     //global function
     Comp2 comp;     //member function call
     comp(3, 4);     // comp.operator()()
@@ -88,5 +94,24 @@ int main(void)
     {
         std::cout << i << ",";
     }
-    return 0;
+#endif
+//an lambda is an nameless functions
+//[](args)<Mutable Specifiactiona><excp specification>  -> <return type> {lambda body}
+    [](){
+        std::cout << "Welcome to Lambda expresions " << std::endl;
+    }(); //<- the brackes will invoke the lambda expression
+    auto fn = [](){
+        std::cout << "anonther lambda expression:" << std::endl;
+    };  // this lambda expression has a name fn
+    fn(); //and we can invoke it like this
+    //the lambda expression type is
+    std::cout << "type: " << typeid(fn).name() << std::endl;
+    //the return type have to be the same like the args otherise it has to define
+    auto sum = [](auto x, auto y) noexcept(false) {
+        return x + y;
+    };
+    Unnamed<int> n;
+    std::cout << "sum: " << sum(5.3f, 3.3f) << std::endl;
+    std::cout << "sum Unnamed: " << n(3, 8) << std::endl;
+    return 1;
 }
