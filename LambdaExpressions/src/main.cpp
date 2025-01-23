@@ -75,9 +75,10 @@ struct Unnamed{
     }
 };
 
+#ifdef FUNCTIONOBJECT
 int main(void)
 {
-#ifdef FUNCTIONOBJECT
+
     Comp(2, 4);     //global function
     Comp2 comp;     //member function call
     comp(3, 4);     // comp.operator()()
@@ -94,7 +95,12 @@ int main(void)
     {
         std::cout << i << ",";
     }
+    return 0;
+}
 #endif
+#ifdef LAMBDA
+int main(void){
+
 //an lambda is an nameless functions
 //[](args)<Mutable Specifiactiona><excp specification>  -> <return type> {lambda body}
     [](){
@@ -115,3 +121,4 @@ int main(void)
     std::cout << "sum Unnamed: " << n(3, 8) << std::endl;
     return 1;
 }
+#endif //LAMBDA

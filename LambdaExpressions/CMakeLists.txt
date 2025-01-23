@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 #add_compile_definitions(FUNCTIONPOINTER)
 #add_compile_definitions(FUNCTIONOBJECT)
-add_compile_definitions(LAMBDA)
+#add_compile_definitions(LAMBDA)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/include
