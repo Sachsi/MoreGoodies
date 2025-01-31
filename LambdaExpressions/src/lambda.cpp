@@ -19,37 +19,64 @@ void sort(T(&arr)[size], Comparator comp){
         }
     }
 }
-//ascending function
-bool Comp(int x, int y){
-    return x > y;
-}
-//descending function
-bool Comp1(int x, int y){
-    return x < y;
-}
-// this is a member function call
-// it can have a state and is maybe faster
-// function objects used as callbacks
-// usally implemented as structures, not classes
-struct Comp2
-{
-    bool operator()(int x, int y){
-        return x < y;
-    }
-};
 
+template<typename T, int size, typename Callback>
+void ForEach(T(&arr)[size], Callback operation){
+    for(int i = 0; i <= size - 1; ++i){
+        operation(arr[i]);
+    }
+}
 
 template<typename T>
-struct Unnamed{
-    T operator()(T x, T y)const{
-        return x + y;
+struct __Unnamed
+{
+    int offset;
+    __Unnamed(int off) : offset(off){}
+    //die Variable in einer Struct ist veänderbar da diese nicht mehr const ist
+    void operator()(T &x)/*const*/{
+        x = offset;
+        ++offset;
     }
 };
+
+
 int main(void)
 {
-    // Comp(2, 4);     //global function
-    // Comp2 comp;     //member function call
-    // comp(3, 4);     // comp.operator()()
+    __Unnamed<int> n(3);
+    int x = 5;
+    n(x);
+
+    int arr[]{1 ,3, 9 ,23, 8, 4};
+    ForEach(arr, [](auto x){
+        std::cout << x << " ";
+    });
+    std::cout << std::endl;
+
+    //offset is not accessable inside the lambda. We have to capture this variable in the capture list 
+    // of the lambda expression
+    int offset = 0;
+    // ForEach(arr,[offset](auto &x){
+    //     //offset inside is a copy
+    //     x += offset;
+    // });
+    //to change offset inside the lambdda expression, lambda has to be mutable
+    ForEach(arr,[offset](auto &x) mutable{
+        //offset inside is a copy and can not changed as well
+        x += offset;
+        ++offset;
+    });
+
+    //print out
+    ForEach(arr, [](auto x){
+        std::cout << x << " ";
+    });
+    std::cout << std::endl;
+
+
+    return 0;
+}
+
+void OldCode(){
 
     int arr[]{1 ,3, 9 ,23, 8, 4};
     for(auto i : arr)
@@ -59,7 +86,7 @@ int main(void)
     // lambda expression can give an name. Just one line above where she is used.
     // with the lambda code, the code is better readable 
     auto comp = [](auto x, auto y){
-        return x > y;
+        return x < y;
     };
     //insert one lambda expression
     sort(arr, comp);
@@ -69,5 +96,4 @@ int main(void)
     {
         std::cout << i << ",";
     }
-    return 0;
 }
