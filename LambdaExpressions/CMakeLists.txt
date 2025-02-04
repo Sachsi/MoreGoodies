@@ -13,7 +13,9 @@ include_directories(
 
 file(GLOB SRCS
     "${PROJECT_SOURCE_DIR}/include/*"
-    "${PROJECT_SOURCE_DIR}/src/*"
+    #"${PROJECT_SOURCE_DIR}/src/lambda.cpp"
+    "${PROJECT_SOURCE_DIR}/src/lambdaPart_2.cpp"
+    #"${PROJECT_SOURCE_DIR}/src/*"
 )
 
 add_executable(LambdaExpressions ${SRCS})
