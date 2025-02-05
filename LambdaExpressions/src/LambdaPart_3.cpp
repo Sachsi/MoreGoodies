@@ -40,38 +40,45 @@ struct __Unnamed
         ++offset;
     }
 };
+class Product {
+    std::string name;
+    float price;
+public:
+    Product(const std::string &n, float p) : name(n), price(p){
 
+    }
+    void AssignFinalPrice(){
+        float taxes[]{12, 5, 2};
+        float basePrice{price};
+        //this pointer has to be capture to modify the member price
+        ForEach(taxes, [basePrice, this](float tax){
+            float taxedPrice = basePrice * tax / 100;
+            price += taxedPrice;
+        });
+    }
+    float GetPrice()
+    {
+        return price;
+    }
+};
 int main(void)
 {
-    __Unnamed<int> n(3);
-    int x = 5;
-    n(x);
-
-    int arr[]{1 ,3, 9 ,23, 8, 4};
-    ForEach(arr, [](auto x){
-        std::cout << x << " ";
+    //callbacks in c functions. it will works is the capture list is emty.
+    //it converts lambda expression to a function pointer
+    atexit([](){
+        std::cout << "Programm is exiting..." << std::endl;
     });
-    std::cout << std::endl;
 
-    //offset is not accessable inside the lambda. We have to capture this variable in the capture list 
-    // of the lambda expression
-    int offset = 0;
+    Product p("watch", 500);
+    p.AssignFinalPrice();
+    std::cout << p.GetPrice() << std::endl;
 
-    int sum{};
-    //it is possible to caputure variable by reference. So they keep their changes globaly. No mutable is necessory.
-    //put just the refrence (&) symbol in the capture brackets, 
-    //when put just equal (=) symbol, it means that all variables capture it by value
-    //with the [this] it capture all member variables
-    ForEach(arr,[&sum, offset](auto &x) {
-        sum += x + offset;
-    });
-    std::cout << "Sum: " << sum <<  std::endl;
-    //print out
-    ForEach(arr, [](auto x){
-        std::cout << x << " ";
-    });
-    std::cout << std::endl;
-
-
+    //using lambda expression in another lambda expression
+    [](int x){
+        x = 2*x;
+        [](int x){
+            std::cout << "x: " << x << std::endl;
+        }(x);
+    }(5);
     return 0;
 }
