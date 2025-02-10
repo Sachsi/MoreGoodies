@@ -21,6 +21,7 @@ add_subdirectory(OperatorOverloading)
 add_subdirectory(ClassTemplates)
 add_subdirectory(TypedefAlias)
 add_subdirectory(LambdaExpressions)
+add_subdirectory(std_Library)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
