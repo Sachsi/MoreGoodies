@@ -47,7 +47,6 @@ int main(void){
     //for what is std::bind useful? To use Accumulate function with only 2 arguments instead of 3
     //we have to bind the third argument to a constant value
     auto acc = std::bind(Accumulate, _1, _2, 0);
-    std::function<int(int, int, std::function<int(int, int)>)> f4 = Operation;
-    std::cout << "Accumulate: " << f4(1, 2, acc) << std::endl;
+    std::cout << "Accumulate: " << Operation(1, 2, acc) << std::endl;
     return 0;
 }
