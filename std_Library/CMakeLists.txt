@@ -15,8 +15,8 @@ file(GLOB SRCS
     "${PROJECT_SOURCE_DIR}/inc/*"
     #"${PROJECT_SOURCE_DIR}/src/lambda.cpp"
     #"${PROJECT_SOURCE_DIR}/src/lambdaPart_2.cpp"
-    #"${PROJECT_SOURCE_DIR}/src/lambdaPart_3.cpp"
-    "${PROJECT_SOURCE_DIR}/src/function.cpp"
+    "${PROJECT_SOURCE_DIR}/src/bind.cpp"
+    #"${PROJECT_SOURCE_DIR}/src/function.cpp"
     #"${PROJECT_SOURCE_DIR}/src/*"
 )
 
