@@ -15,9 +15,10 @@ file(GLOB SRCS
     "${PROJECT_SOURCE_DIR}/inc/*"
     #"${PROJECT_SOURCE_DIR}/src/array_vector.cpp"
     #"${PROJECT_SOURCE_DIR}/src/deque.cpp"
-    "${PROJECT_SOURCE_DIR}/src/list_multiList.cpp"
+    #"${PROJECT_SOURCE_DIR}/src/list_multiList.cpp"
     #"${PROJECT_SOURCE_DIR}/src/bind.cpp"
     #"${PROJECT_SOURCE_DIR}/src/function.cpp"
+    "${PROJECT_SOURCE_DIR}/src/set_multiset.cpp"
     #"${PROJECT_SOURCE_DIR}/src/*"
 )
 
