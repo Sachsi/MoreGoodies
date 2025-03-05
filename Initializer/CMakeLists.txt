@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.25.0)
 project(Initializer VERSION 0.1.0 LANGUAGES C CXX)
 
 add_executable(Initializer src/main.cpp)

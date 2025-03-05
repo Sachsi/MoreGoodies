@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.25.0)
 project(ExceptionHandling VERSION 0.1.0 LANGUAGES C CXX)
 
 add_compile_definitions(NoExHand_I_)
