@@ -23,6 +23,7 @@ add_subdirectory(TypedefAlias)
 add_subdirectory(LambdaExpressions)
 add_subdirectory(std_Library)
 add_subdirectory(Algorithms)
+add_subdirectory(Containers)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
