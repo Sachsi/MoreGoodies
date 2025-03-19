@@ -18,7 +18,7 @@ Integer::Integer(int value)
 	m_pInt = new int(value);
 }
 //Move Constractor 
-Integer::Integer(Integer &&obj)
+Integer::Integer(Integer &&obj) noexcept
 {
 	std::cout << "Integer(Integer&&)" << std::endl;
 	m_pInt = obj.m_pInt;
@@ -42,7 +42,7 @@ Integer & Integer::operator=(const Integer &obj)
 	return *this;
 }
 //Move Assignment 
-Integer & Integer::operator=(Integer &&obj)
+Integer & Integer::operator=(Integer &&obj) noexcept
 {
 		std::cout << "Integer::operator=( Integer&&)" << std::endl;
 	if(this != &obj)
