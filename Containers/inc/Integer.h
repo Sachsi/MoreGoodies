@@ -13,9 +13,9 @@ class Integer
 	// Copy Constractor
 		Integer(const Integer &obj);
 	 //Move Constractor
-		Integer(Integer &&obj);
+		Integer(Integer &&obj) noexcept;
 	 //Move Assignment
-		Integer & operator=(Integer &&obj);
+		Integer & operator=(Integer &&obj) noexcept;
 		~Integer();
 		void SetValue(int value);
 		int GetValue(void) const;
