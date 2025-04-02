@@ -5,6 +5,7 @@
 #include <filesystem>   //C++17
 #include <list>
 #include <deque>
+#include <set>
 
 void Emplace()
 {
@@ -70,18 +71,63 @@ void Print(const Container &cont, const char *msg=""){
     }
 }
 
-#ifdef CHANGE_TWO
-
-int main(void){
-
+void erase(){
     std::vector<int> vInt{1,2,3,4,5};
     std::list<int> lstInt{1,2,3,4,5};
     std::deque<int> dequeInt{1,2,3,4,5};
 
+    std::erase(vInt, 2);
+    std::erase(lstInt, 2);
+    std::erase(dequeInt, 2);
+
+    Print(vInt, "vector");
+    Print(lstInt, "list");
+    Print(dequeInt, "deque");
+}
+//#ifdef CHANGE_TWO
+
+int main(void){
+
+    //emplace_hint() 
+    std::set<int> data{1,2,6,3};
+    data.emplace_hint(data.begin(), 0);
+
+    //using function find()
+    auto it = data.find(6);
+    if(it != data.end()){
+        std::cout << "Found: " << std::endl;
+    }
+    //but function function .contains() combines the steps to one
+    auto found = data.contains(6);
+    if(found){
+        std::cout << "Found: " << std::endl;;
+    }
+
+    //try to change one character in a set of string
+    std::set<std::string> names{"Tobi", "Klausi", "Hans", "Leter"};
+    auto cha =names.find("Leter");
+    auto name = *cha;
+    name[0] = 'P';
+    names.erase(cha);
+    names.insert(name);
+    for(auto a : names){
+        std::cout << a << '\n';
+    }
+    //a shorter way to change one letter in a string
+    auto node = names.extract("Tobi");
+    node.value().append("as");
+    names.insert(std::move(node));
+    node = names.extract("Klausi");
+    node.value()[5] = ' ';
+    names.insert(std::move(node));
+    for(auto a : names){
+        std::cout << a << '\n';
+    }
+
     return 1;
 }
 
-#endif //CHANGE_TWO
+//#endif //CHANGE_TWO
 
 #ifdef CHANGE_ONE
 
