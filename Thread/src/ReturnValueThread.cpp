@@ -1,61 +1,56 @@
 #include <iostream>
-#include <list>
+#include <future>
 #include <thread>
-#include <string>
+#include <vector>
 
-std::list<int> g_Data;
-const int SIZE = 50000000;
-
-class String{
-public:
-    String(){
-        std::cout << "String()" << std::endl;
-    }
-    String(const String &){
-        std::cout << "String(const String&)" << std::endl;
-    }
-    String & operator=(const String&){
-        std::cout << "operator=(const String&)" << std::endl;
-        return *this;
-    }
-    ~String(){
-        std::cout << "~String()" << std::endl;
-    }
-};
-
-void DownloadData(const String &file){
-    //std::cout << "[Downloader] Started download of file: " << file << std::endl;
-    for(int i = 0; i < SIZE; i++){
-        g_Data.push_back(i);
-    }
-    std::cout << "[Downloader]Finished download" << std::endl;
+int Add(int x, int y){
+    return x + y;
 }
-#define REF_STRING
+
+int Square(int x){
+    return x * x;
+}
+
+int Compute(const std::vector<int> &data){
+    using namespace std;
+    int sum{};
+    for(auto e : data){
+        sum += e;
+        std::this_thread::sleep_for(1s);
+        std::cout << '.';
+    }
+    return sum;
+}
 
 int main(){
-    String file;
+    std::packaged_task<int(int, int)> taskAdd{Add};
+    std::future<int> ft = taskAdd.get_future();
+    taskAdd(3, 5);
 
-    std::cout << "[Main] User started an operation" << std::endl;
-    //creating a thread
-    //with this normal referance, two string objects are created
-#ifndef REF_STRING
-    std::thread thDownloader(DownloadData, file);
-#else
-    //to create just one string object, we can use std::ref or std::cref (for const reference)
-    std::thread thDownloader(DownloadData, std::cref(file));
-#endif
-    // a detached thread can not be joined. It can never be joined again
-    //thDownloader.detach();
+    auto result = ft.get();
+    //return value auf Add function
+    std::cout << "Result of Add: " << result << std::endl;
 
-    std::cout << "[Main] User started another operation" << std::endl;
-    // to wait until the thread is finished ww have to call join
-    // every created thread is joinable thread
-    if(thDownloader.joinable()){
-        thDownloader.join();
-    }else
-        std::cout << "[Main]thread was not joinable" << std::endl;
+    std::packaged_task<int(int)> taskSquare{Square};
+    auto fSquare = taskSquare.get_future();
+    taskSquare(5);
+    int resultSquare = fSquare.get();
+    //return value of Square function
+    std::cout << "Result of Square: " << resultSquare << std::endl;
 
-    //to wait by detached thread use system("Pause");
-    //system("Pause");
+    std::packaged_task<int(const std::vector<int>&)> taskCompute(Compute);
+    auto fCompute = taskCompute.get_future();
+    std::vector<int> data{1, 2, 3, 4, 5, 6};
+    //taskCompute(data);
+    //create one thread to execute the packaged task. Using std::move to transfer the task
+    std::thread thCompute(std::move(taskCompute), data);
+    std::cout << "[Main] User started thCompute thread" << std::endl;
+    //Main wait for the return value
+    int resultCompute = fCompute.get();
+    //return value of Compute function
+    std::cout << "Result of Compute: " << resultCompute << std::endl;
+
+    std::cout << "[Main] User ends" << std::endl;
+    thCompute.join();
     return 1;
 }
