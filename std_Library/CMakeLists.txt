@@ -22,7 +22,8 @@ file(GLOB SRCS
     #"${PROJECT_SOURCE_DIR}/src/map_Multimap.cpp"
     #"${PROJECT_SOURCE_DIR}/src/unordert_set.cpp"
     #"${PROJECT_SOURCE_DIR}/src/unordert_map.cpp"
-    "${PROJECT_SOURCE_DIR}/src/hash.cpp"
+    #"${PROJECT_SOURCE_DIR}/src/hash.cpp"
+    "${PROJECT_SOURCE_DIR}/src/optional.cpp"
     #"${PROJECT_SOURCE_DIR}/src/*"
 )
 
