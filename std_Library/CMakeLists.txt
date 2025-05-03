@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 #add_compile_definitions(FUNCTIONPOINTER)
 #add_compile_definitions(FUNCTIONOBJECT)
 #add_compile_definitions(LAMBDA)
+#add_compile_definitions(OPTIONAL_STEP2)
+add_compile_definitions(OPTIONAL_STEP3)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/inc
