@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 #add_compile_definitions(FUNCTIONOBJECT)
 #add_compile_definitions(LAMBDA)
 #add_compile_definitions(OPTIONAL_STEP2)
-add_compile_definitions(OPTIONAL_STEP3)
+#add_compile_definitions(OPTIONAL_STEP3)
 
 include_directories(
     ${PROJECT_SOURCE_DIR}/inc
@@ -25,7 +25,8 @@ file(GLOB SRCS
     #"${PROJECT_SOURCE_DIR}/src/unordert_set.cpp"
     #"${PROJECT_SOURCE_DIR}/src/unordert_map.cpp"
     #"${PROJECT_SOURCE_DIR}/src/hash.cpp"
-    "${PROJECT_SOURCE_DIR}/src/optional.cpp"
+    #"${PROJECT_SOURCE_DIR}/src/optional.cpp"
+    "${PROJECT_SOURCE_DIR}/src/variant.cpp"
     #"${PROJECT_SOURCE_DIR}/src/*"
 )
 
