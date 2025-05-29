@@ -5,16 +5,23 @@ namespace Duck::Base
 {
     class Duck
     {
+    protected:
+        std::string name;
     public:
 
         virtual void quack() const{ //no Pure virtual function
-            std::cout << "Duck quacks!" << std::endl;
+            std::cout << "Duck quacks! ";
         }
-        virtual void swin() const { //no Pure virtaul function
-            std::cout << "Duck swims!" << std::endl; 
+        virtual void swim() const { //no Pure virtaul function
+            std::cout << "Duck swims! "; 
         }
         virtual void fly() const { // no pure virtual function
-            std::cout << "Duck flies!" << std::endl;
+            std::cout << "Duck flies! ";
+        }
+        virtual void display() const {
+            std::cout << "Duck is displayed! ";
         }
     };
 }
+
+
