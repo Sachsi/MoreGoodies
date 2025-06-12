@@ -25,6 +25,8 @@ add_subdirectory(std_Library)
 add_subdirectory(Algorithms)
 add_subdirectory(Containers)
 add_subdirectory(HeadFirstPattern/Duck)
+add_subdirectory(HeadFirstPattern/DuckBehavior)
+add_subdirectory(HeadFirstPattern/Observer)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
