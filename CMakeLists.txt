@@ -27,6 +27,7 @@ add_subdirectory(Containers)
 add_subdirectory(HeadFirstPattern/Duck)
 add_subdirectory(HeadFirstPattern/DuckBehavior)
 add_subdirectory(HeadFirstPattern/Observer)
+add_subdirectory(HeadFirstPattern/ObserverPull)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
