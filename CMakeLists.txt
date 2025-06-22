@@ -28,6 +28,7 @@ add_subdirectory(HeadFirstPattern/Duck)
 add_subdirectory(HeadFirstPattern/DuckBehavior)
 add_subdirectory(HeadFirstPattern/Observer)
 add_subdirectory(HeadFirstPattern/ObserverPull)
+add_subdirectory(HeadFirstPattern/Starbuzz)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
