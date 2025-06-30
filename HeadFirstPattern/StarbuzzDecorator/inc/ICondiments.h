@@ -12,14 +12,13 @@
 #include <iostream>
 #include "IBeverage.h"
 
-namespace Condiments
+
+class CondimentDecorator : public Beverage
 {
-    class CondimentDecorator : public Beverage::Beverage
-    {
-        public:
-            Beverage *beverage2; // Pointer to the beverage being decorated
-        public:
-            virtual ~CondimentDecorator() = default;
-            virtual std::string getDescribtion() const = 0; // Pure virtual function
-    };
-}
+    public:
+        Beverage *beverage2; // Pointer to the beverage being decorated
+    public:
+        virtual ~CondimentDecorator() = default;
+        virtual std::string getDescribtion() const = 0; // Pure virtual function
+};
+

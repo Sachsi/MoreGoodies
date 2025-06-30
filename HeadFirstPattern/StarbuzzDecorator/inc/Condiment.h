@@ -11,27 +11,25 @@
 #pragma once
 #include "ICondiments.h"
 
-namespace StarrbuzzCoffee {
 
-    class Mocha : public Condiments::CondimentDecorator {
-        public:
-            Mocha(Beverage *bev);
-            std::string getDescribtion() const override;
-            double cost() const override;
-    };
 
-    class Soy : public Condiments::CondimentDecorator {
-        public:
-            Soy(Beverage* bev);
-            std::string getDescribtion() const override;
-            double cost() const override;
-    };
+class Mocha : public CondimentDecorator {
+    public:
+        Mocha(Beverage *bev);
+        std::string getDescribtion() const override;
+        double cost() const override;
+};
 
-    class Whip : public Condiments::CondimentDecorator {
-        public:
-            Whip(Beverage* bev);
-            std::string getDescribtion() const override;
-            double cost() const override;
-    };
+class Soy : public CondimentDecorator {
+    public:
+        Soy(Beverage* bev);
+        std::string getDescribtion() const override;
+        double cost() const override;
+};
 
-}
+class Whip : public CondimentDecorator {
+    public:
+        Whip(Beverage* bev);
+        std::string getDescribtion() const override;
+        double cost() const override;
+};

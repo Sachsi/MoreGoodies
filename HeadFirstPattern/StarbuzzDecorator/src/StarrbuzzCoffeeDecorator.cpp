@@ -5,11 +5,15 @@
 
 int main() {
 
-    StarrbuzzCoffee::Espresso espresso = StarrbuzzCoffee::Espresso();
+    Espresso espresso = Espresso();
     std::cout << espresso.getDescribtion() << " " << espresso.cost() << std::endl;
 
     //Latte
-    StarrbuzzCoffee::HouseBlend houseBlend = StarrbuzzCoffee::HouseBlend();
-    std::cout << houseBlend.getDescribtion() << " " << houseBlend.cost() << std::endl;
+    HouseBlend houseBlend = HouseBlend();
+    Mocha mocha = Mocha(&houseBlend);
+    Soy soy = Soy(&mocha);
+    Whip whip = Whip(&soy);
+
+    std::cout << whip.getDescribtion() << " " << whip.cost() << std::endl;
 }
 
