@@ -19,6 +19,6 @@ class CondimentDecorator : public Beverage
         Beverage *beverage2; // Pointer to the beverage being decorated
     public:
         virtual ~CondimentDecorator() = default;
-        virtual std::string getDescribtion() const = 0; // Pure virtual function
+        virtual std::string getDescribtion() const = 0; // Pure virtual function to get description
 };
 
