@@ -10,14 +10,20 @@ int main() {
 
     //Latte
     HouseBlend houseBlend = HouseBlend();
+
+    houseBlend.setSize(Size::GRANDE);
     Mocha mocha = Mocha(&houseBlend);
     Soy soy = Soy(&mocha);
-    Whip whip = Whip(&soy);
+
+    std::cout << soy.getDescribtion() << " " << soy.cost() << std::endl;
+
+    //Flat White TALL
+    HouseBlend houseBlend2 = HouseBlend();;
+    houseBlend2.setSize(Size::TALL);
+    Mocha mocha2 = Mocha(&houseBlend2);
+    Soy soy2 = Soy(&mocha2);
     
-
-    std::cout << whip.getDescribtion() << " " << whip.cost() << std::endl;
-
-    //Flat White
+    std::cout << soy2.getDescribtion() << " " << soy2.cost() << std::endl;
     
 }
 

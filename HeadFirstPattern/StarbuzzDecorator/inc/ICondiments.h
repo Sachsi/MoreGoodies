@@ -20,5 +20,8 @@ class CondimentDecorator : public Beverage
     public:
         virtual ~CondimentDecorator() = default;
         virtual std::string getDescribtion() const = 0; // Pure virtual function to get description
+        Size getSize() const override {
+            return beverage2->getSize(); // Return the size of the decorated beverage
+        }
 };
 

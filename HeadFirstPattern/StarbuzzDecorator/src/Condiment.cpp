@@ -11,7 +11,20 @@ std::string Mocha::getDescribtion() const
 }
 double Mocha::cost() const
 {
-    return this->beverage2->cost() + 0.20; // Add the cost of Mocha;
+    double cost = 0.0;
+    if(beverage2->getSize() == Size::TALL)
+    {
+        cost = 0.20; // Cost for TALL size
+    }
+    else if(beverage2->getSize() == Size::GRANDE)
+    {
+        cost = 0.15; // Cost for GRANDE size
+    }
+    else if(beverage2->getSize() == Size::VENTI)
+    {
+        cost = 0.10; // Cost for VENTI size
+    }
+    return this->beverage2->cost() + cost; // Add the cost of Mocha;
 }
 
 
@@ -21,11 +34,24 @@ Soy::Soy(Beverage *bev)
 }
 std::string Soy::getDescribtion() const
 {
-    return beverage2->getDescribtion() + ", Soy"; // Append Soy to the beverage description;
+    return this->beverage2->getDescribtion() + ", Soy"; // Append Soy to the beverage description;
 }
 double Soy::cost() const
 {
-    return this->beverage2->cost() + 0.15; // Add the cost of Soy;
+    double cost = 0.0;
+    if(beverage2->getSize() == Size::TALL)
+    {
+        cost = 0.20; // Cost for TALL size
+    }
+    else if(beverage2->getSize() == Size::GRANDE)
+    {
+        cost = 0.15; // Cost for GRANDE size
+    }
+    else if(beverage2->getSize() == Size::VENTI)
+    {
+        cost = 0.10; // Cost for VENTI size
+    }    
+    return beverage2->cost() + cost; // Add the cost of Soy;
 }
 
 Whip::Whip(Beverage *bev) 
@@ -38,5 +64,18 @@ std::string Whip::getDescribtion() const
 }
 double Whip::cost() const
 {
-    return this->beverage2->cost() + 0.10; // Add the cost of Whip;
+    double cost = 0.0;
+    if(beverage2->getSize() == Size::TALL)
+    {
+        cost == 0.20; // Cost for TALL size
+    }
+    else if(beverage2->getSize() == Size::GRANDE)
+    {
+        cost = 0.15; // Cost for GRANDE size
+    }
+    else if(beverage2->getSize() == Size::VENTI)
+    {
+        cost = 0.10; // Cost for VENTI size
+    }
+    return this->beverage2->cost() + cost; // Add the cost of Whip;
 }
