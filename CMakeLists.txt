@@ -30,6 +30,7 @@ add_subdirectory(HeadFirstPattern/Observer)
 add_subdirectory(HeadFirstPattern/ObserverPull)
 add_subdirectory(HeadFirstPattern/Starbuzz)
 add_subdirectory(HeadFirstPattern/StarbuzzDecorator)
+add_subdirectory(HeadFirstPattern/FactoryPattern)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
