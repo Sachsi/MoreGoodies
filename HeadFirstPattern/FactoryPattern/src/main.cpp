@@ -3,6 +3,7 @@
 #include "ChicagoStyle.h"
 #include "FactoryStyle.h"
 #include "PizzaStore.h"
+#include "NYStyle.h"
 #include <string>
 
 
@@ -16,10 +17,9 @@ int main()
     std::string pizzaPepperoni = "pepperoni";
 
     ChicagoStyle chicagoPizzaStore; // Create a Chicago style pizza store instance   
-    FactoryMethod pizzaFactory; // Create a factory method instance
-    
-    
-    pizzaFactory.OrderPizza(pizzaType);
+    NYStyle nyStyle; // Create a factory method instance
+
+    nyStyle.OrderPizza(pizzaType);
     std::cout << "------------------------" << std::endl;
     chicagoPizzaStore.OrderPizza(pizzaPepperoni);
     return 0;

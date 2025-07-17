@@ -1,5 +1,6 @@
 #pragma once
 #include "PizzaStore.h"
+#include "NYStyleCheesePizza.h"
 #include <iostream>
 
 class NYStyle : public PizzaStore {
@@ -7,11 +8,14 @@ class NYStyle : public PizzaStore {
         virtual ~NYStyle(){
             std::cout << "Pizza order completed!" << std::endl;
         }
-        Pizza createPizza(std::string type)const override{
-            Pizza pizza;
+        Pizza* createPizza(std::string type)const override{
+            
+            Pizza* pizza;
+
             if(type == "cheese")
             {
                 std::cout << "Preparing cheese pizza in NYStyle..." << std::endl;
+                pizza = dynamic_cast<Pizza*>(new NYStyleCheesePizza);
             }
             else if(type == "pepperoni")
             {
