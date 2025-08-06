@@ -13,13 +13,13 @@ int main()
     std::cout << "Welcome to the Pizzeria!" << std::endl;
     
     // Future implementation will go here
-    std::string pizzaCheese = "cheese"; // Example pizza type
+    std::string pizzaType = "cheese"; // Example pizza type
     std::string pizzaPepperoni = "pepperoni";
 
     ChicagoStyle chicagoPizzaStore; // Create a Chicago style pizza store instance   
     NYStyle nyStyle; // Create a factory method instance
 
-    nyStyle.OrderPizza(pizzaCheese);
+    nyStyle.OrderPizza(pizzaType);
     std::cout << "------------------------" << std::endl;
     chicagoPizzaStore.OrderPizza(pizzaPepperoni);
     return 0;
