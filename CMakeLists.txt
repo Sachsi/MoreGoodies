@@ -31,6 +31,7 @@ add_subdirectory(HeadFirstPattern/ObserverPull)
 add_subdirectory(HeadFirstPattern/Starbuzz)
 add_subdirectory(HeadFirstPattern/StarbuzzDecorator)
 add_subdirectory(HeadFirstPattern/FactoryPattern)
+add_subdirectory(HeadFirstPattern/FactoryPatternAbstract)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
