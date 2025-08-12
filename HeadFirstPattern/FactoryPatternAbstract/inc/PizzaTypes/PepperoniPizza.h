@@ -7,8 +7,8 @@ class PepperoniPizza : public Pizza {
     protected:
         PizzaIngredientFactory* ingredientsFactory;    
     public:
-        PepperoniPizza(PizzaIngredientFactory* factory) {
-             ingredientsFactory = factory;
+        PepperoniPizza(PizzaIngredientFactory& factory) {
+             ingredientsFactory = &factory;
         }
 
         void prepare() override {

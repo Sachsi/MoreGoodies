@@ -1,112 +1,83 @@
 #pragma once
 #include <iostream>
+#include <string>
 
-class Dough
-{
-    public:
-    virtual ~Dough(){};
-};
-
-class ThickCrustDough : public Dough
+class ThickCrustDough
 {
 private:
     /* data */
 public:
-    ThickCrustDough(){
-        std::cout << "add ThickCrustDough" << std::endl;
+    std::string ThickCrustDoughIn(){
+        return "ThickCrustDough";
     }
-    ~ThickCrustDough();
 };
 
-class ThinCrustDough : public Dough
+class ThinCrustDough
 {
 private:
     /* data */
 public:
-    ThinCrustDough(){
-        std::cout << "add ThinCrustDough" << std::endl;
+    std::string ThinCrustDoughIn(){
+        return "ThinCrustDough";
     }
-    ~ThinCrustDough();
+
 };
 
-class Sauce
+class ChilliSauce
 {
     public:
-    virtual ~Sauce(){};
-};
-
-class ChilliSauce : public Sauce
-{
-    public:
-    ChilliSauce(){
-        std::cout << "add ChilliSauce" << std::endl;
+        std::string ChilliSauceIn(){
+        return "ChilliSauce";
     }
-    ~ChilliSauce();
 };
 
-class MarinaraSauce : public Sauce
+class MarinaraSauce
 {
     public:
-    MarinaraSauce(){
-        std::cout << "add MarinaraSauce" << std::endl;
+    std::string MarinaraSauceIn(){
+        return "MarinaraSauce";
     }
-    ~MarinaraSauce();
 };
 
-class Cheese
-{
-    public:
-    virtual ~Cheese(){};
-};
 
-class CremeCheese : public Cheese
+class CremeCheese
 {
 public:
-    CremeCheese(){
-        std::cout << "add CremeCheese" << std::endl;
+    std::string CremeCheeseIn(){
+        return"CremeCheese";
     }
-    ~CremeCheese();
 };
 
-class NewYorkerCheese : public Cheese
+class NewYorkerCheese
 {
 public:
-    NewYorkerCheese(){
-        std::cout << "add NewYorkerCheese" << std::endl;
+    std::string NewYorkerCheeseIn(){
+        return "NewYorkerCheese";
     }
-    ~NewYorkerCheese();
 };
 
-class Veggies
-{
-    public:
-    virtual ~Veggies(){};
-};
 
-class RedPepper : public Veggies
+class RedPepper 
 {
 public:
-    RedPepper(){
-        std::cout << "add RedPepper" << std::endl;
+    std::string RedPepperIn(){
+        return "RedPepper" ;
     }
-    ~RedPepper();
 };
 
-class Pepperoni : public Veggies
+class Pepperoni
 {
 public:
-    Pepperoni(){
-        std::cout << "add Pepperoni" << std::endl;
+    std::string PepperoniIn(){
+        return "Pepperoni" ;
     }
-    ~Pepperoni();
 };
 
 class Clams
 {
 public:
-    Clams(){
-        std::cout << "add Clams" << std::endl;
+    std::string ClamsIn(){
+        return "Clams";
     }
-    ~Clams();
 };
 

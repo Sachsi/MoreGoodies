@@ -7,12 +7,13 @@ class ClamPizza : public Pizza {
     protected:
         PizzaIngredientFactory* ingredientsFactory;
     public:
-        ClamPizza(PizzaIngredientFactory* factory) {
-            ingredientsFactory = factory        }
+        ClamPizza(PizzaIngredientFactory& factory) {
+            ingredientsFactory = &factory;
+        }
 
         void prepare() override {
             std::cout << "Preparing " + name  << std::endl;
-            *dough = ingredientsFactory->createDough();
+            dough = ingredientsFactory->createDough();
         }
 
         void cut() override {

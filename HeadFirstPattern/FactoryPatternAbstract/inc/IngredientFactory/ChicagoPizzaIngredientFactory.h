@@ -6,29 +6,37 @@
 class ChicagoPizzaIngredientFactory : public PizzaIngredientFactory {
 
     public:
-        virtual ~ChicagoPizzaIngredientFactory() {
-            std::cout << "NY Pizza Ingredient Factory destroyed!" << std::endl;
+
+        std::string createDough() const {
+            auto temp = ThickCrustDough(); 
+            return temp.ThickCrustDoughIn();
         }
 
-        Dough createDough() const {
-            return ThinCrustDough();
+        std::string createSauce() const override {
+            auto temp = ChilliSauce();
+            return temp.ChilliSauceIn();
         }
 
-        Sauce createSauce() const {
-            return ChilliSauce();
+        std::string createCheese() const override{
+            auto temp = CremeCheese();
+            return temp.CremeCheeseIn();
         }
 
-        Cheese createCheese() const {
-            return CremeCheese();
+        std::list<std::string> createVeggeis() const override {
+            auto temp = RedPepper();
+            std::list<std::string> veggies;
+            veggies.push_back(temp.RedPepperIn());
+            return  veggies;
         }
 
-        std::list<Veggies> createVeggeis() const {
-            return { RedPepper(), Pepperoni()};
+        std::string createPepperoni() const override {
+            auto temp = RedPepper();
+            return temp.RedPepperIn();
         }
 
-
-        Clams createClam() const {
-            return Clams();
+        std::string createClam() const override{
+            auto temp = Clams();
+            return temp.ClamsIn();
         }
 
 

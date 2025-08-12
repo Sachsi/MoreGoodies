@@ -1,19 +1,16 @@
 #pragma once
 #include <iostream>
-#include "Pizza.h"
-#include "Ingredients.h"
+#include "../Pizza.h"
 
 class PizzaIngredientFactory
 {
 private:
     /* data */
 public:
-    virtual ~PizzaIngredientFactory();
-
-    Dough createDough() const;
-    Sauce createSauce() const;
-    Cheese createCheese() const ;
-    std::list<Veggies> createVeggeis() const;
-    Pepperoni createPepperoni() const;
-    Clams createClam() const;
+    virtual std::string createDough() const = 0;
+    virtual std::string createSauce() const = 0;
+    virtual std::string createCheese() const = 0;
+    virtual std::list<std::string> createVeggeis() const = 0;
+    virtual std::string createPepperoni() const = 0;
+    virtual std::string createClam() const = 0;
 };

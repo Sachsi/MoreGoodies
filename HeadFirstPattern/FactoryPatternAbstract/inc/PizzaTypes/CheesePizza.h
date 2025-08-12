@@ -8,14 +8,17 @@ class CheesePizza : public Pizza {
     protected:
         PizzaIngredientFactory* ingredientsFactory;
     public:
-        CheesePizza(PizzaIngredientFactory* factory) {
-            ingredientsFactory = factory;            
+        CheesePizza(PizzaIngredientFactory& factory) : ingredientsFactory(&factory){            
+        }
+        void prepare() override {
+            dough = ingredientsFactory->createDough();
+            souce = ingredientsFactory->createSauce();
+            cheese = ingredientsFactory->createCheese();
+            //toppings = ingredientsFactory->createToppings();
         }
 
-        void prepare() override {
-            std::cout << "Preparing " + name  << std::endl;
-            *dough = ingredientsFactory->createDough();
-
+        void cut() override {
+            std::cout << "Cutting the pizza into square slices" << std::endl;
         }
 
 };

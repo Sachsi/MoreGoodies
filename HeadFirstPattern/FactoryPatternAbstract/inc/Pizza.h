@@ -7,9 +7,10 @@
 class Pizza {
     protected:
         std::string name;
-        Dough dough;
-        Sauce souce;
-        std::list<Veggies> toppings{};
+        std::string dough;
+        std::string souce;
+        std::string cheese;
+        std::list<std::string> toppings{};
     public:
         virtual void prepare() = 0;
         
@@ -21,6 +22,27 @@ class Pizza {
         }
         virtual void box() {
             std::cout << "Boxing pizza in official PizzaStore box" << std::endl;
+        }
+
+        void setName(const std::string& pizzaName) {
+            this->name = pizzaName;
+        }
+
+        std::string getName() const {
+            return this->name;
+        }
+
+        std::string toString() const {
+            std::string result = "Pizza: " + name + "\nDough: " + dough + "\nSauce: " + souce + "\nCheese: " + cheese;
+            if (!toppings.empty()) {
+                result += "\nToppings: ";
+                for (const auto& topping : toppings) {
+                    result += topping + ", ";
+                }
+                result.pop_back(); // Remove last comma
+                result.pop_back(); // Remove last space
+            }
+            return result;
         }
 
 };
