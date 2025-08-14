@@ -1,10 +1,13 @@
-#include <iostream>
+#include "singleton.h"
+#include "main.h"
 
 int main() {
-    std::cout << "Welcome to the Singleton Pattern example!" << std::endl;
+    Singleton& instance1 = Singleton::getInstance();
+    instance1.showMessage();
 
-    // Future implementation will go here
-    // For example, you could create a Singleton class and demonstrate its usage
+    Singleton& instance2 = Singleton::getInstance();
+    instance2.showMessage();
 
+    // Both instance1 and instance2 refer to the same instance
     return 0;
 }
