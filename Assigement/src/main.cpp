@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include "main.h"
 
 std::string ToUpper(const std::string &str) ;
 std::string ToLower(const std::string &str) ;
