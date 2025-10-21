@@ -34,6 +34,8 @@ add_subdirectory(HeadFirstPattern/FactoryPattern)
 add_subdirectory(HeadFirstPattern/FactoryPatternAbstract)
 add_subdirectory(HeadFirstPattern/SingletonPattern)
 add_subdirectory(HeadFirstPattern/SingletonPattern/Schokoladenfabrik)
+add_subdirectory(HeadfirstPattern/CommandPattern)
+
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

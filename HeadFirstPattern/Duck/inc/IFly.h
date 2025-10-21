@@ -8,5 +8,5 @@ namespace Duck::Fly
     {
         public:
             virtual void fly() const = 0; // pure virtual function
-    }
+    };
 }
