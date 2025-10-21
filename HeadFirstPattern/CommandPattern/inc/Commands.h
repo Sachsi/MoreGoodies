@@ -5,12 +5,22 @@
 
 namespace Commands{
 
-    using namespace CommandInterface;
-
-    class LightCommand : public CommandInterface{
+    class Light{
         public:
-            bool lightOn(){
-                
+            bool On(){
+                on = true;
+                off = false;
+                return on;
             }
-    }
+            bool Off(){
+                off = true;
+                on = false;
+                return off;
+            }
+        private:
+            bool on = false;
+            bool off = true;
+    };
 }
+
+#endif // COMMANDS_H

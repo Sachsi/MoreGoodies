@@ -3,10 +3,12 @@
 
 #include <iostream>
 #include "../inc/interface.h"
+#include "../inc/Commands.h"
 
 namespace LightCommand
 {
     using namespace CommandInterface;
+    using namespace Commands;
 
     class LightOnCommand : public CommandInterface
     {
@@ -18,7 +20,8 @@ namespace LightCommand
             }
 
             void execute() override{
-                light->on();
+                light->On();
+                std::cout << "Light is On" << std::endl;
             }
     };
 } // namespace LightCommand
