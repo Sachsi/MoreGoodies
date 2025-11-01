@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace CommandInterface
+namespace Interface
 {
     class CommandInterface{
         public:

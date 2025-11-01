@@ -7,7 +7,7 @@
 
 namespace LightCommand
 {
-    using namespace CommandInterface;
+    using namespace Interface;
     using namespace Commands;
 
     class LightOnCommand : public CommandInterface
@@ -17,6 +17,7 @@ namespace LightCommand
 
             LightOnCommand(Light *light){
                 this->light = light;
+                std::cout << "LightOnCommand created" << std::endl;
             }
 
             void execute() override{

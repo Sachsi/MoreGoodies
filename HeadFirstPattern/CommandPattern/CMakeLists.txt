@@ -5,9 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE
     src/CommandPattern.cpp
+    src/RemoteControle.cpp
     inc/Light.h
     inc/interface.h
-    #src/Stereo.cpp
     #src/Light.cpp
     #src/Hottub.cpp
     #src/NoCommand.cpp
