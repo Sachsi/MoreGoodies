@@ -3,6 +3,7 @@
 
 #pragma once
 #include <iostream>
+#include <array>
 #include "..\inc\interface.h"
 
 namespace RemoteControle
@@ -16,6 +17,17 @@ namespace RemoteControle
         SimpleRemoteControle();
         void setCommand(CommandInterface *command);
         void buttonWasPressed();
+    };
+
+        class RemoteControl{
+        private:
+            std::array<CommandInterface*, 7> onCommand;
+            std::array<CommandInterface*, 7> offCommand;
+        public:
+            RemoteControl(){
+                onCommand.fill(nullptr);
+                offCommand.fill(nullptr);
+            }
     };
 
 } // namespace RemoteControle
