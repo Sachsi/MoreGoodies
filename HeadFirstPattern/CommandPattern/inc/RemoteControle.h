@@ -9,11 +9,11 @@ namespace RemoteControle
 {
     using namespace Interface;
 
-    class RemoteControle
+    class SimpleRemoteControle
     {
         CommandInterface *slot;
     public:
-        RemoteControle();
+        SimpleRemoteControle();
         void setCommand(CommandInterface *command);
         void buttonWasPressed();
     };

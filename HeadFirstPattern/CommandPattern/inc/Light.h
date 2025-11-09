@@ -12,8 +12,9 @@ namespace LightCommand
 
     class LightOnCommand : public CommandInterface
     {
-        public:
+        private:
             Light *light;
+        public:
 
             LightOnCommand(Light *light){
                 this->light = light;
