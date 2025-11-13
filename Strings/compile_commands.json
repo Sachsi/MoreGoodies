@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/storage/emulated/0/CppProjects/MoreGoodies/Strings",
+  "command": "/data/user/0/ru.iiec.cxxdroid/files/bin/clang++  -I/storage/emulated/0/CppProjects/MoreGoodies/Strings/include -I/storage/emulated/0/CppProjects/MoreGoodies/Strings/src -Wall -std=c++17 -fallow-void-main -o CMakeFiles/Main.dir/src/main.cpp.o -c /storage/emulated/0/CppProjects/MoreGoodies/Strings/src/main.cpp",
+  "file": "/storage/emulated/0/CppProjects/MoreGoodies/Strings/src/main.cpp"
+}
+]
