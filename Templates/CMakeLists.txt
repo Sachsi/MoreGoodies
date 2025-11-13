@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.25.0)
 project(Templates VERSION 0.1.0 LANGUAGES C CXX)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
-add_compile_definitions(VARIADIC)
+#add_compile_definitions(VARIADIC)
 #add_compile_definitions(FORWARDING)
 #add_compile_definitions(ASSIGNMENT)
 #add_compile_definitions(TEMPLATES_STEP1)
