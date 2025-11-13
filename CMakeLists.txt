@@ -4,7 +4,7 @@ project(stl VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
-#add_subdirectory(Initializer)
+add_subdirectory(VariablesDataTypes/NumberSystem)
 #add_subdirectory(Literals)
 #add_subdirectory(Vector)
 #add_subdirectory(Strings)
