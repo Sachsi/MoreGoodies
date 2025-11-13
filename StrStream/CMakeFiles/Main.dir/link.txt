@@ -1,1 +1,0 @@
-/data/user/0/ru.iiec.cxxdroid/files/bin/clang++ -Wall -std=c++17 -fallow-void-main -lm -ldl -llog -lz -static-libstdc++ CMakeFiles/Main.dir/src/main.cpp.o -o Main 
