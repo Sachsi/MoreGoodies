@@ -19,18 +19,18 @@ namespace RemoteControle
         void buttonWasPressed();
     };
 
-        class RemoteControl{
-        private:
-            std::array<CommandInterface*, 7> onCommand;
-            std::array<CommandInterface*, 7> offCommand;
-        public:
-            RemoteControl(){
-                onCommand.fill(nullptr);
-                offCommand.fill(nullptr);
-            }
+    class RemoteControl{
+    private:
+        std::array<CommandInterface*, 7> onCommand;
+        std::array<CommandInterface*, 7> offCommand;
+    public:
+        RemoteControl();
+        void setCommand(int slot, CommandInterface* onCommand, CommandInterface* offCommand);
+        void onButtonWasPushed(int slot);
+        void offButtonWasPushed(int slot);
+        std::string toString();
     };
-
-} // namespace RemoteControle
+} //namespace RemoteControle
 
 
 #endif // REMOTE_CONTROLE_H
