@@ -26,6 +26,22 @@ namespace LightCommand
                 std::cout << "Light is On" << std::endl;
             }
     };
+
+    class LightOffCommand : public CommandInterface
+    {
+        private:
+            Light *light;
+        public:
+            LightOffCommand(Light *light){
+                this->light = light;
+                std::cout << "LightOffCommand created" << std::endl;
+            }
+            void execute() override{
+                light->Off();
+                std::cout << "Light is Off" << std::endl;
+            }
+            
+    };
 } // namespace LightCommand
 
 #endif // LIGHT_H

@@ -22,6 +22,8 @@ int main(){
 
     // create a command object and pass the receiver to it.
     LightOnCommand lightOn = LightCommand::LightOnCommand(&light);
+    LightOffCommand lightOff = LightCommand::LightOffCommand(&light);
+    
     GarageDoorOpenCommand garageOpen = GarageDoorCommand::GarageDoorOpenCommand(&garageDoor);
 
     // assign the command object to the invoker
