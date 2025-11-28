@@ -8,6 +8,7 @@ target_sources(${PROJECT_NAME} PRIVATE
     src/RemoteControle.cpp
     inc/Light.h
     inc/interface.h
+    inc/Stereo.h
     #src/Light.cpp
     #src/Hottub.cpp
     #src/NoCommand.cpp

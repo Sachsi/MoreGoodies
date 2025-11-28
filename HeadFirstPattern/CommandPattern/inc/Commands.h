@@ -21,7 +21,7 @@ namespace Commands{
             bool on = false;
             bool off = true;
     };
-
+    // class for GarageDoor
     class GarageDoor{
         private:
             bool open = false;
@@ -55,6 +55,27 @@ namespace Commands{
                 light = false;
                 return light;
             }
+    };
+    // class for Stereo
+    class Stereo{
+        private:
+            bool on = false;
+            bool off = true;
+        public:
+            bool On(){
+                this->on = true;
+                this->off = false;
+                return on;
+            }
+            bool SetCD(){
+                std::cout << "Stereo is set for CD input" << std::endl;
+                return true;
+            }
+            bool SetVolume(int volume){
+                std::cout << "Stereo volume set to " << volume << std::endl;
+                return true;
+            }
+
     };
 }
 

@@ -3,6 +3,7 @@
 #include "../inc/Light.h"
 #include "../inc/RemoteControle.h"
 #include "../inc/GarageDoor.h"
+#include "../inc/Stereo.h"
 
 using namespace Commands;
 using namespace LightCommand;
