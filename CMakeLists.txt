@@ -5,7 +5,7 @@ include(CTest)
 enable_testing()
 
 add_subdirectory(VariablesDataTypes/NumberSystem)
-#add_subdirectory(Literals)
+add_subdirectory(06.LiteralsAndConstants/constinit)
 #add_subdirectory(Vector)
 #add_subdirectory(Strings)
 #add_subdirectory(Assigement)
