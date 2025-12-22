@@ -2,6 +2,7 @@
 #define COMMANDPATTERN_INTERFACE_H
 
 #include <iostream>
+#include <iomanip>
 
 namespace Interface
 {

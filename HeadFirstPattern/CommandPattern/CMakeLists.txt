@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.25)
 project(CommandPattern)
 set(CMAKE_CXX_STANDARD 17)
 
+#add_definitions(SIMPLEREMOTECONTROLE_TEST)
+#add_definitions(REMOTECONTROL_TEST)
+
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE
     src/CommandPattern.cpp

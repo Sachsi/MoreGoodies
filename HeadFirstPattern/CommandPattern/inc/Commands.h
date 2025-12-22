@@ -7,6 +7,11 @@ namespace Commands{
 
     class Light{
         public:
+            Light(std::string name)
+            {
+                this->name = name;
+                std::cout << "Light is " << std::setw(10)  << name << std::endl;
+            }
             bool On(){
                 on = true;
                 off = false;
@@ -18,6 +23,7 @@ namespace Commands{
                 return off;
             }
         private:
+            std::string name;
             bool on = false;
             bool off = true;
     };
@@ -28,7 +34,12 @@ namespace Commands{
             bool close = true;
             bool light = false;
             bool stop = true;
+            std::string name;
         public:
+            GarageDoor(std::string name){
+                this->name = name;
+                std::cout << "GarageDoor is " << std::setw(10) << name << std::endl;
+            }
             bool Up(){
                 open = true;
                 close = false,
@@ -61,7 +72,12 @@ namespace Commands{
         private:
             bool on = false;
             bool off = true;
+            std::string name;
         public:
+            Stereo(std::string name){
+                this->name = name;
+                std::cout << "Stereo is " << std::setw(10) << name << std::endl;
+            }
             bool On(){
                 this->on = true;
                 this->off = false;
