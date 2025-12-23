@@ -25,17 +25,35 @@ int main(){
     else if (REMOTECONTROL_TEST == 1)
         remote_2 = new RemoteControl();
     
+    //--- creating all the devices (receivers) in their proper locations ---//
+    std::cout << "\n--- Creating Receivers (devices) ---\n" << std::endl;
     // create a light object. This is the receiver
-    Light light = Commands::Light("Kitchen");
+    Light kitchenLight = Commands::Light("Kitchen");
+    Light livingRoomLight = Commands::Light("Living Room");
     // create a garage door object. This is the receiver
-    GarageDoor garageDoor = Commands::GarageDoor();
+    GarageDoor garageDoor = Commands::GarageDoor("CarPort");
+    // Create a stereo object. This is the receiver
+    Stereo stereoCD = Commands::Stereo("Living Room Stereo");
 
+    //--- creating all the Light command objects ---//
+    std::cout << "\n--- Creating Command Objects for Lights ---\n" << std::endl;
     // create a command object and pass the receiver to it.
-    LightOnCommand lightOn = LightCommand::LightOnCommand(&light);
-    LightOffCommand lightOff = LightCommand::LightOffCommand(&light);
+    LightOnCommand lightOn = LightCommand::LightOnCommand(&kitchenLight);
+    LightOffCommand lightOff = LightCommand::LightOffCommand(&kitchenLight);
+    LightOnCommand livingRoomLightOn = LightCommand::LightOnCommand(&livingRoomLight);
+    LightOffCommand livingRoomLightOff = LightCommand::LightOffCommand(&livingRoomLight);
     
-    GarageDoorOpenCommand garageOpen = GarageDoorCommand::GarageDoorOpenCommand(&garageDoor);
+    //--- creating all the garage door command objects ---//
+    std::cout << "\n--- Creating Command Objects ---\n" << std::endl;
+    GarageDoorOpen garageOpen = GarageDoorCommand::GarageDoorOpen(&garageDoor);
+    GarageDoorDown garageDown = GarageDoorCommand::GarageDoorDown(&garageDoor);
 
+    //--- creating all the stereo command objects ---//
+    std::cout << "\--- Creating Command Objects for Stereo ---\n" << std::endl;
+    StereoCommand::StereoOnWithCD stereoOn = StereoCommand::StereoOnWithCD(&stereoCD);
+    StereoCommand::StereoOff stereoOff = StereoCommand::StereoOff(&stereoCD);
+
+    //--- 
     // assign the command object to the invoker
     if (remote != nullptr){
         remote->setCommand(&lightOn);

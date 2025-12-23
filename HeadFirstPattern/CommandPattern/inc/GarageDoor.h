@@ -11,18 +11,35 @@ namespace GarageDoorCommand
     using namespace Interface;
     using namespace Commands;
 
-    class GarageDoorOpenCommand : public CommandInterface
+    class GarageDoorOpen : public CommandInterface
     {
         private:
             GarageDoor *garageDoor;
         public:
-            GarageDoorOpenCommand(GarageDoor *garageDoor){
-                this->garageDoor = garageDoor;
-                std::clog << "GarageDoorOpenCommand created" << std::endl;
+            GarageDoorOpen(GarageDoor *pgarageDoorCommand){
+                this->garageDoor = pgarageDoorCommand;
+                std::clog << "GarageDoorOpen created" << std::endl;
             }
             void execute() override{
                 garageDoor->Up();
                 std::clog << "Garage Door is Opened" << std::endl;
+            }
+    };
+
+    class GarageDoorDown : public CommandInterface
+    {
+        private:
+            GarageDoor *garageDoor;
+        public:
+            GarageDoorDown(GarageDoor* pGarageDoorCommand){
+                this->garageDoor = pGarageDoorCommand;
+                std::clog << "GarageDoorDown command created" << std::endl;
+            }
+
+            void execute() override{
+                //garage Door->Down();
+                this->garageDoor->Down();
+                std::cout << "Garage Door is Closed" << std::endl;
             }
     };
 }

@@ -79,17 +79,24 @@ namespace Commands{
                 std::cout << "Stereo is " << std::setw(10) << name << std::endl;
             }
             bool On(){
+                std::cout << "Steroe On executed" << std::endl;
                 this->on = true;
                 this->off = false;
                 return on;
             }
             bool SetCD(){
-                std::cout << "Stereo is set for CD input" << std::endl;
+                //std::cout << "Stereo is set for CD input" << std::endl;
                 return true;
             }
             bool SetVolume(int volume){
-                std::cout << "Stereo volume set to " << volume << std::endl;
+                //std::cout << "Stereo volume set to " << volume << std::endl;
                 return true;
+            }
+            bool Off(){
+                std::cout << "Stereo Off executed" << std::endl;
+                this->off = true;
+                this->on = false;
+                return off;;
             }
 
     };

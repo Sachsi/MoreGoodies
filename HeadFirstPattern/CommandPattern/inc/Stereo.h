@@ -6,22 +6,41 @@
 
 namespace StereoCommand
 {
-    class StereoOnWithCDCommand : public Commands::Stereo
+    using namespace Commands;
+    using namespace Interface;
+
+    class StereoOnWithCD : public CommandInterface
     {
         private:
-            Stereo *stereo;
+            Stereo *pStereo;
         public:
-            StereoOnWithCDCommand(Stereo *stereo){
-                this->stereo = stereo;
+            StereoOnWithCD(Stereo *pStereoCommand){
+                this->pStereo = pStereoCommand;
                 std::cout << "StereoOnWithCDCommand created" << std::endl;
             }
+
             void execute(){
-                stereo->On();
-                stereo->SetCD();
-                stereo->SetVolume(11);
+                pStereo->On();
+                pStereo->SetCD();
+                pStereo->SetVolume(11);
                 std::cout << "Stereo is ON with CD and volume set to 11 " << std::endl;
             }
 
+    };
+
+    class StereoOff : public CommandInterface
+    {
+        private:
+            Stereo* pStereo;
+        public:
+            StereoOff(Stereo* pStereoCommand){
+                this->pStereo = pStereoCommand;
+                std::cout << "StereoOff command created" << std::endl;
+            }
+            void execute() override{
+                this->pStereo->Off();
+                std::cout << "Stereo is Off" << std::endl;
+            }
     };
 } // namespace StereoCommand
 
