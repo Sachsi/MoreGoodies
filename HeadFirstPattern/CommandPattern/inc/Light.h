@@ -18,12 +18,16 @@ namespace LightCommand
 
             LightOnCommand(Light *light){
                 this->light = light;
-                std::cout << "LightOnCommand created" << std::endl;
+                std::cout << std::setw(40) << "LightOnCommand created" << std::endl;
             }
 
             void execute() override{
                 light->On();
-                std::cout << "Light is On" << std::endl;
+                std::cout << std::setw(40) << "Light is On" << std::endl;
+            }
+
+            std::string GetName() override{
+                return "LightOnCommand";
             }
     };
 
@@ -34,13 +38,15 @@ namespace LightCommand
         public:
             LightOffCommand(Light *light){
                 this->light = light;
-                std::cout << "LightOffCommand created" << std::endl;
+                std::cout << std::setw(40) << "LightOffCommand created" << std::endl;
             }
             void execute() override{
                 light->Off();
-                std::cout << "Light is Off" << std::endl;
+                std::cout << std::setw(40) << "Light is Off" << std::endl;
             }
-            
+            std::string GetName() override{
+                return "LightOffCommand";
+            }
     };
 } // namespace LightCommand
 

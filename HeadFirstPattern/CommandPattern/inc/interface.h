@@ -11,6 +11,7 @@ namespace Interface
             //virtual ~Command() = default;
             virtual void execute() = 0;
             //virtual void noCommand() = 0;
+            virtual std::string GetName() = 0;
     };
     
 } // namespace CommandInterface

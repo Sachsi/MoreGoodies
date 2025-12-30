@@ -18,11 +18,14 @@ namespace GarageDoorCommand
         public:
             GarageDoorOpen(GarageDoor *pgarageDoorCommand){
                 this->garageDoor = pgarageDoorCommand;
-                std::clog << "GarageDoorOpen created" << std::endl;
+                std::cout << std::setw(40) << "GarageDoorOpen command created" << std::endl;
             }
             void execute() override{
                 garageDoor->Up();
-                std::clog << "Garage Door is Opened" << std::endl;
+                std::cout << std::setw(40) << "Garage Door is Opened" << std::endl;
+            }
+            std::string GetName() override{
+                return "GarageDoorOpen";
             }
     };
 
@@ -33,13 +36,16 @@ namespace GarageDoorCommand
         public:
             GarageDoorDown(GarageDoor* pGarageDoorCommand){
                 this->garageDoor = pGarageDoorCommand;
-                std::clog << "GarageDoorDown command created" << std::endl;
+                std::cout << std::setw(40) << "GarageDoorDown command created" << std::endl;
             }
 
             void execute() override{
                 //garage Door->Down();
                 this->garageDoor->Down();
-                std::cout << "Garage Door is Closed" << std::endl;
+                std::cout << std::setw(40) << "Garage Door is Closed" << std::endl;
+            }
+            std::string GetName() override{
+                return "GarageDoorDown";
             }
     };
 }

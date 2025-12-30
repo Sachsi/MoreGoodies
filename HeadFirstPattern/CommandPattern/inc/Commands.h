@@ -10,7 +10,7 @@ namespace Commands{
             Light(std::string name)
             {
                 this->name = name;
-                std::cout << "Light is " << std::setw(10)  << name << std::endl;
+                std::cout << std::setw(20) << "Light is " << std::setw(20)  << name << std::endl;
             }
             bool On(){
                 on = true;
@@ -38,15 +38,17 @@ namespace Commands{
         public:
             GarageDoor(std::string name){
                 this->name = name;
-                std::cout << "GarageDoor is " << std::setw(10) << name << std::endl;
+                std::cout << std::setw(20) << "GarageDoor is " << std::setw(20) << name << std::endl;
             }
             bool Up(){
+                std::cout << std::setw(40) << "GarageDoor Up executed" <<  std::endl;
                 open = true;
-                close = false,
+                close = false;
                 stop = false;
                 return open;
             }
             bool Down(){
+                std::cout << std::setw(40) << "GarageDoor Down executed" << std::endl;
                 close = true;
                 open = false;
                 stop = false;
@@ -76,10 +78,10 @@ namespace Commands{
         public:
             Stereo(std::string name){
                 this->name = name;
-                std::cout << "Stereo is " << std::setw(10) << name << std::endl;
+                std::cout << std::setw(20) << "Stereo is " << std::setw(20) << name << std::endl;
             }
             bool On(){
-                std::cout << "Steroe On executed" << std::endl;
+                std::cout << std::setw(40) << "Steroe On executed" << std::endl;
                 this->on = true;
                 this->off = false;
                 return on;
@@ -93,7 +95,7 @@ namespace Commands{
                 return true;
             }
             bool Off(){
-                std::cout << "Stereo Off executed" << std::endl;
+                std::cout << std::setw(40) << "Stereo Off executed" << std::endl;
                 this->off = true;
                 this->on = false;
                 return off;;

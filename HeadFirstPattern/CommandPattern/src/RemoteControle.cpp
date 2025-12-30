@@ -52,9 +52,18 @@ namespace RemoteControle
         stringBuffer.append("\n------ Remote Control -------\n");
         for (int i = 0; i < 7; i ++){
             stringBuffer.append("[slot " + std::to_string(i) + "] ");
-            stringBuffer.append(typeid(onCommand[i]).name());
+            if (onCommand[i] == nullptr){
+                stringBuffer.append("No Command   ");
+            }
+            else
+                stringBuffer.append(onCommand[i]->GetName());
             stringBuffer.append("   ");
-            stringBuffer.append(typeid(offCommand[i]).name());
+            if (offCommand[i] == nullptr){
+                stringBuffer.append("No Command\n");
+                continue;
+            }
+            else
+                stringBuffer.append(offCommand[i]->GetName());
             stringBuffer.append("\n");
         }
         return stringBuffer;

@@ -16,14 +16,17 @@ namespace StereoCommand
         public:
             StereoOnWithCD(Stereo *pStereoCommand){
                 this->pStereo = pStereoCommand;
-                std::cout << "StereoOnWithCDCommand created" << std::endl;
+                std::cout << std::setw(40) << "StereoOnWithCD command created" << std::endl;
             }
 
             void execute(){
                 pStereo->On();
                 pStereo->SetCD();
                 pStereo->SetVolume(11);
-                std::cout << "Stereo is ON with CD and volume set to 11 " << std::endl;
+                std::cout << std::setw(40) << "Stereo is ON with CD and volume set to 11 " << std::endl;
+            }
+            std::string GetName() override{
+                return "StereoOnWithCD Command";
             }
 
     };
@@ -35,11 +38,14 @@ namespace StereoCommand
         public:
             StereoOff(Stereo* pStereoCommand){
                 this->pStereo = pStereoCommand;
-                std::cout << "StereoOff command created" << std::endl;
+                std::cout << std::setw(40) << "StereoOff command created" << std::endl;
             }
             void execute() override{
                 this->pStereo->Off();
-                std::cout << "Stereo is Off" << std::endl;
+                std::cout << std::setw(40) << "Stereo is Off" << std::endl;
+            }
+            std::string GetName() override{
+                return "StereoOff Command";
             }
     };
 } // namespace StereoCommand

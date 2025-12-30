@@ -49,24 +49,27 @@ int main(){
     GarageDoorDown garageDown = GarageDoorCommand::GarageDoorDown(&garageDoor);
 
     //--- creating all the stereo command objects ---//
-    std::cout << "\--- Creating Command Objects for Stereo ---\n" << std::endl;
+    std::cout << "\n--- Creating Command Objects for Stereo ---\n" << std::endl;
     StereoCommand::StereoOnWithCD stereoOn = StereoCommand::StereoOnWithCD(&stereoCD);
     StereoCommand::StereoOff stereoOff = StereoCommand::StereoOff(&stereoCD);
 
-    //--- 
-    // assign the command object to the invoker
+    //--- load all the commands objects into the remote controle slots ---//
+    std::clog << "\n--- Assigning Command Objects to the Invoker ---\n" << std::endl;
     if (remote != nullptr){
         remote->setCommand(&lightOn);
+        remote->setCommand(&garageOpen);
+        remote->setCommand(&stereoOn);
         // simulate button press
         remote->buttonWasPressed();
-        // assign the garage door command object to the invoker
-        remote->setCommand(&garageOpen);
+
         remote->buttonWasPressed();
     }
     else if (remote_2 != nullptr){
         remote_2->setCommand(0, &lightOn, &lightOff);
         remote_2->onButtonWasPushed(0);
+        std::cout << remote_2->toString();
         remote_2->offButtonWasPushed(0);
+        std::cout << remote_2->toString();
     }
 
     return 1;
