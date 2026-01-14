@@ -25,7 +25,7 @@ namespace RemoteControle
         onCommand.fill(nullptr);
         offCommand.fill(nullptr);
 
-        CommandInterface* NoCommand = nullptr;
+        CommandInterface* NoCommand = new RemoteControle::NoCommand();
         for (int i = 0; i < 7; i++){
             onCommand[i] = NoCommand;
             offCommand[i] = NoCommand;

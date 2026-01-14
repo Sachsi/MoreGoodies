@@ -10,6 +10,17 @@ namespace RemoteControle
 {
     using namespace Interface;
 
+    class NoCommand : public CommandInterface
+    {
+        public:
+            void execute() override{
+                std::cout << "No Command Assigned to this slot" << std::endl;
+            }
+            std::string GetName() override{
+                return "NoCommand";
+            }
+    };
+
     class SimpleRemoteControle
     {
         CommandInterface *slot;
@@ -30,6 +41,7 @@ namespace RemoteControle
         void offButtonWasPushed(int slot);
         std::string toString();
     };
+
 } //namespace RemoteControle
 
 
