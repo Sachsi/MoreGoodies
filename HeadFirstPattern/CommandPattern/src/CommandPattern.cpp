@@ -38,8 +38,8 @@ int main(){
     //--- creating all the Light command objects ---//
     std::cout << "\n--- Creating Command Objects for Lights ---\n" << std::endl;
     // create a command object and pass the receiver to it.
-    LightOnCommand lightOn = LightCommand::LightOnCommand(&kitchenLight);
-    LightOffCommand lightOff = LightCommand::LightOffCommand(&kitchenLight);
+    //LightOnCommand lightOn = LightCommand::LightOnCommand(&kitchenLight);
+    //LightOffCommand lightOff = LightCommand::LightOffCommand(&kitchenLight);
     LightOnCommand livingRoomLightOn = LightCommand::LightOnCommand(&livingRoomLight);
     LightOffCommand livingRoomLightOff = LightCommand::LightOffCommand(&livingRoomLight);
     
@@ -56,7 +56,7 @@ int main(){
     //--- load all the commands objects into the remote controle slots ---//
     std::clog << "\n--- Assigning Command Objects to the Invoker ---\n" << std::endl;
     if (remote != nullptr){
-        remote->setCommand(&lightOn);
+        //remote->setCommand(&lightOn);
         remote->setCommand(&garageOpen);
         remote->setCommand(&stereoOn);
         // simulate button press
@@ -65,10 +65,24 @@ int main(){
         remote->buttonWasPressed();
     }
     else if (remote_2 != nullptr){
-        remote_2->setCommand(0, &lightOn, &lightOff);
+        auto kitchenlightOn = [&kitchenLight]() {LightOnCommand lightOn = LightCommand::LightOnCommand(&kitchenLight);
+                                                return lightOn; }();
+        auto kitchenlightOff = [&kitchenLight]() {LightOffCommand lightOff = LightCommand::LightOffCommand(&kitchenLight);
+                                                return lightOff; }();
+
+        //  set actions for slot 0 with created conreate command obejects before
+        //remote_2->setCommand(0, &lightOn, & lightOff);
+        
+        // set actions for slot 0 with lambta functions, the concreate command object was no necessary
+        remote_2->setCommand(0, &kitchenlightOn,
+                                &kitchenlightOff);
+        //remote_2->setCommand(1, [&livingRoomLight]() {return (CommandInterface*)livingRoomLight.On();}(),
+        //                        [&livingRoomLight]() {return (CommandInterface*)livingRoomLight.Off();}());
         remote_2->onButtonWasPushed(0);
+        //remote_2->onButtonWasPushed(1);
         std::cout << remote_2->toString();
         remote_2->offButtonWasPushed(0);
+        //remote_2->offButtonWasPushed(1);
         std::cout << remote_2->toString();
     }
 
