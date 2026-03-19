@@ -38,5 +38,21 @@ if(range == true){
     std::cout << out_range << std::endl;
 }
 
+    int data[]{1,2,3,4,5,6,7,8,9,10};
+    int *data_ptr{data};
+    int offset{3};
+
+    int* address;
+    
+    if(offset > 0){
+        int size{sizeof(data)};
+        address = data_ptr + offset;
+    }else
+    {
+        address = data_ptr++;
+    }
+    
+    std::cout << "The element 3 slots away from the beginning is : " << *address;
+
 return 1;
 }
