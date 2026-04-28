@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-template <typename T> T& maximum(T& a, T& b)
+template <typename T> T maximum(T a, T b)
 {
     return (a > b) ? a : b;
 }
@@ -21,7 +21,7 @@ int main()
     std::string result3 = maximum(str1, str2);
     //explicite template argument, so we can compare different types, 
     //but we need to make sure that the types are compatible
-    auto result4 = maximum(x, y);
+    double result4 = maximum<double>(x, a);
 
     std::cout << "maxmum is " << result4 << std::endl;
     return 0;
